@@ -6,6 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+/**
+ * CLASE PROVINCIA
+ * Contiene un id y el nombre de la provincia.
+ * @author admin
+ *
+ */
 @Entity
 @Table(name = "PROVINCIA")
 public class Provincia {
