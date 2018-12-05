@@ -48,6 +48,18 @@ public class ControladorMVC {
 		return model;
 	}
 	
-	@
+	@RequestMapping("/modificar")
+	public ModelAndView modificarContacto(@RequestParam("id") int id) {
+		Contacto contacto = contactoServicio.vistaDetalleContacto(id);
+		ModelAndView model = new ModelAndView("AltaContacto");
+		model.addObject("contacto", contacto);
+		return model;	
+	}
+	
+	@RequestMapping("/borrar")
+	public ModelAndView borrarContacto(@RequestParam("id") int id) {
+		contactoServicio.borrarContacto(id);
+		return new ModelAndView("redirect:/");
+	}
 
 }
