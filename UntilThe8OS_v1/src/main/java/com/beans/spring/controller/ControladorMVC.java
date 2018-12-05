@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.beans.spring.model.Contacto;
@@ -27,8 +29,25 @@ public class ControladorMVC {
 	public ModelAndView listaContactos() {
 		List<Contacto> listaContactos = contactoServicio.listaContactos();
 		ModelAndView model = new ModelAndView("ListaContactos");
-		model.addObject("ListaContactos", listaContactos);
+		model.addObject("listaContactos", listaContactos);
 		return model;
 	}
+	
+	@RequestMapping("/detalle")
+	public ModelAndView vistaDetalleContacto (@RequestParam("id") int id) {
+		Contacto contacto = contactoServicio.vistaDetalleContacto(id);
+		ModelAndView model = new ModelAndView("VistaDetalleContacto");
+		model.addObject("vistaDetalleContacto", contacto);
+		return model;
+	}
+	
+	@RequestMapping("/alta")
+	public ModelAndView altaContacto(@ModelAttribute Contacto contacto) {
+		ModelAndView model = new ModelAndView("AltaContacto");
+		model.addObject("contacto", new Contacto());
+		return model;
+	}
+	
+	@
 
 }
