@@ -54,11 +54,11 @@ public class Persona {
 	}
 
 	public int getId() {
-		return id;
+		return idPersona;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idPersona = id;
 	}
 
 	public String getNombre() {
@@ -122,7 +122,5 @@ public class Persona {
 		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
-
-
 
 }
