@@ -13,8 +13,8 @@ import com.beans.spring.model.Contacto;
 import com.beans.spring.services.ContactoServicio;
 
 /**
- * CLASE CONTROLADORMVC
- * Constituye el controlador del modelo MVC.
+ * CLASE CONTROLADORMVC Constituye el controlador del modelo MVC.
+ * 
  * @author Cristian G. Fortes
  * @version 05/12/2018
  *
@@ -32,30 +32,30 @@ public class ControladorMVC {
 		model.addObject("listaContactos", listaContactos);
 		return model;
 	}
-	
+
 	@RequestMapping("/detalle")
-	public ModelAndView vistaDetalleContacto (@RequestParam("id") int id) {
+	public ModelAndView vistaDetalleContacto(@RequestParam("id") int id) {
 		Contacto contacto = contactoServicio.vistaDetalleContacto(id);
 		ModelAndView model = new ModelAndView("VistaDetalleContacto");
 		model.addObject("vistaDetalleContacto", contacto);
 		return model;
 	}
-	
+
 	@RequestMapping("/alta")
 	public ModelAndView altaContacto(@ModelAttribute Contacto contacto) {
 		ModelAndView model = new ModelAndView("AltaContacto");
 		model.addObject("contacto", new Contacto());
 		return model;
 	}
-	
+
 	@RequestMapping("/modificar")
 	public ModelAndView modificarContacto(@RequestParam("id") int id) {
 		Contacto contacto = contactoServicio.vistaDetalleContacto(id);
 		ModelAndView model = new ModelAndView("AltaContacto");
 		model.addObject("contacto", contacto);
-		return model;	
+		return model;
 	}
-	
+
 	@RequestMapping("/borrar")
 	public ModelAndView borrarContacto(@RequestParam("id") int id) {
 		contactoServicio.borrarContacto(id);
