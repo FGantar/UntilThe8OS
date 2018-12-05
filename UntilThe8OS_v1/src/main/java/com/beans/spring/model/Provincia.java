@@ -10,7 +10,8 @@ import javax.persistence.Table;
 /**
  * CLASE PROVINCIA
  * Contiene un id y el nombre de la provincia.
- * @author admin
+ * @author Cristian G. Fortes
+ * @version 05/12/2018
  *
  */
 @Entity
