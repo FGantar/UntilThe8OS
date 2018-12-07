@@ -6,7 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 /**
  * CLASE PERSONA Clase persona es una entidad, representando la tabla persona en
@@ -24,33 +26,39 @@ public class Persona {
 	@Id
 	@GeneratedValue
 	@Column(name = "IDPERSONA")
-	public int id;
+	private int idPersona;
 
 	@Column(name = "NOMBRE")
-	public String nombre;
+	private String nombre;
 
 	@Column(name = "APELLIDO1")
-	public String apellido1;
+	private String apellido1;
 
 	@Column(name = "APELLIDO2")
-	public String apellido2;
+	private String apellido2;
 
 	@Column(name = "DNI")
-	public String dni;
+	private String dni;
 
 	@Column(name = "FECHANACIMIENTO")
-	public Date fechaNacimiento;
+	private Date fechaNacimiento;
+
+	@OneToMany(mappedBy = "persona")
+	private List<Telefono> telefonos;
+
+	@OneToMany(mappedBy = "persona")
+	private List<Direccion> direcciones;
 
 	public Persona() {
 		super();
 	}
 
 	public int getId() {
-		return id;
+		return idPersona;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idPersona = id;
 	}
 
 	public String getNombre() {
@@ -93,23 +101,26 @@ public class Persona {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	public List<Telefono> getTelefonos() {
+		return telefonos;
+	}
+
+	public void setTelefonos(List<Telefono> telefonos) {
+		this.telefonos = telefonos;
+	}
+
+	public List<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Persona [id=");
-		builder.append(id);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append(", apellido1=");
-		builder.append(apellido1);
-		builder.append(", apellido2=");
-		builder.append(apellido2);
-		builder.append(", dni=");
-		builder.append(dni);
-		builder.append(", fechaNacimiento=");
-		builder.append(fechaNacimiento);
-		builder.append("]");
-		return builder.toString();
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
+				+ ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
 
 }
