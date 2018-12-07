@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beans.spring.model.Contacto;
+import com.beans.spring.model.Persona;
 import com.beans.spring.services.ContactoServicio;
 
 /**
@@ -27,37 +27,37 @@ public class ControladorMVC {
 
 	@RequestMapping("/")
 	public ModelAndView listaContactos() {
-		List<Contacto> listaContactos = contactoServicio.listaContactos();
+		List<Persona> listaContactos = contactoServicio.listaContactos();
 		ModelAndView model = new ModelAndView("ListaContactos");
 		model.addObject("listaContactos", listaContactos);
 		return model;
 	}
 
 	@RequestMapping("/detalle")
-	public ModelAndView vistaDetalleContacto(@RequestParam("id") int id) {
-		Contacto contacto = contactoServicio.vistaDetalleContacto(id);
+	public ModelAndView vistaDetalleContacto(@RequestParam("idPersona") int id) {
+		Persona persona = contactoServicio.vistaDetalleContacto(id);
 		ModelAndView model = new ModelAndView("VistaDetalleContacto");
-		model.addObject("vistaDetalleContacto", contacto);
+		model.addObject("vistaDetalleContacto", persona);
 		return model;
 	}
 
 	@RequestMapping("/alta")
-	public ModelAndView altaContacto(@ModelAttribute Contacto contacto) {
+	public ModelAndView altaContacto(@ModelAttribute Persona persona) {
 		ModelAndView model = new ModelAndView("AltaContacto");
-		model.addObject("contacto", new Contacto());
+		model.addObject("contacto", new Persona());
 		return model;
 	}
 
 	@RequestMapping("/modificar")
-	public ModelAndView modificarContacto(@RequestParam("id") int id) {
-		Contacto contacto = contactoServicio.vistaDetalleContacto(id);
+	public ModelAndView modificarContacto(@RequestParam("idPersona") int id) {
+		Persona persona = contactoServicio.vistaDetalleContacto(id);
 		ModelAndView model = new ModelAndView("AltaContacto");
-		model.addObject("contacto", contacto);
+		model.addObject("contacto", persona);
 		return model;
 	}
 
 	@RequestMapping("/borrar")
-	public ModelAndView borrarContacto(@RequestParam("id") int id) {
+	public ModelAndView borrarContacto(@RequestParam("idPersona") int id) {
 		contactoServicio.borrarContacto(id);
 		return new ModelAndView("redirect:/");
 	}
