@@ -2,7 +2,13 @@
 
 
 h1{
-    text-align: center
+    text-align: center;
+    color: #ffffff;
+    border:solid;
+    border-width: 3px;
+    border-radius: 20px;
+    border-color: rgba(0,0,0,0.5);
+    background-color: rgba(2,24,58,0.7)
 }
 
 table{
@@ -16,14 +22,14 @@ table{
     border-bottom-right-radius: 10px;
 }
 .principal{
-    background: rgba(236, 203, 145, 0.5);
+    background: rgba(0, 40, 158, 0.5);
     
 }
 
 .contact{
     font-size: 20px;
     text-align: center;
-    width: 90%;
+    width: 95%;
     height: auto;
     border-top-left-radius: 10px;
 }
