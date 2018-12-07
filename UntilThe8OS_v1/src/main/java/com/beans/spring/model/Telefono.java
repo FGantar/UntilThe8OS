@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,12 +16,14 @@ public class Telefono {
 	@GeneratedValue
 	@Column(name = "IDTELEFONO")
 	private int idtelefono;
-	
+
 	@Column(name = "TELEFONO")
 	private String telefono;
-	
-	
-	
+
+	@ManyToOne()
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	private Persona persona;
+
 	public Telefono() {
 		super();
 	}
@@ -46,18 +50,17 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Telefono [idtelefono=");
-		builder.append(idtelefono);
-		builder.append(", telefono=");
-		builder.append(telefono);
-		builder.append("]");
-		return builder.toString();
+		return "Telefono [idtelefono=" + idtelefono + ", telefono=" + telefono + ", persona=" + persona + "]";
 	}
-	
-	
-	
-	
+
 }
