@@ -26,11 +26,11 @@ public class ControladorMVC {
 	private ContactoServicio contactoServicio;
 
 	@RequestMapping("/")
-	public ModelAndView listaContactos() {
+	public String listaContactos() {
 		List<Persona> listaContactos = contactoServicio.listaContactos();
-		ModelAndView model = new ModelAndView("ListaContactos");
+		ModelAndView model = new ModelAndView();
 		model.addObject("listaContactos", listaContactos);
-		return model;
+		return "ListaContactos.html";
 	}
 
 	@RequestMapping("/detalle")
