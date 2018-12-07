@@ -119,8 +119,9 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + "]";
+		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
+				+ apellido2 + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", telefonos=" + telefonos
+				+ "]";
 	}
 
 }

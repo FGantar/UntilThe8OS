@@ -2,7 +2,7 @@ package com.beans.spring.services;
 
 import java.util.List;
 
-import com.beans.spring.model.Contacto;
+import com.beans.spring.model.Persona;
 
 /**
  * INTERFAZ CONTACTOSERVICIO
@@ -13,11 +13,11 @@ import com.beans.spring.model.Contacto;
  */
 public interface ContactoServicio {
 
-	public abstract List<Contacto> listaContactos();
+	public abstract List<Persona> listaContactos();
 
-	public abstract Contacto vistaDetalleContacto(int id);
+	public abstract Persona vistaDetalleContacto(int id);
 
-	public abstract void altaContacto(Contacto contacto);
+	public abstract void altaContacto(Persona persona);
 
 	public abstract void modificarContacto(int id);
 
