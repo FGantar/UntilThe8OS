@@ -19,7 +19,7 @@ public interface ContactoServicio {
 
 	public abstract void altaContacto(Persona persona);
 
-	public abstract void modificarContacto(int id);
+	public abstract void modificarContacto(Persona persona);
 
 	public abstract void borrarContacto(int id);
 

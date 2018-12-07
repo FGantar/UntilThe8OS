@@ -3,6 +3,8 @@ package com.beans.spring.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,18 +27,18 @@ public class Provincia {
 	@Column(name = "PROVINCIA")
 	private String provincia;
 
-	@OneToOne(mappedBy = "provincia")
-	private Direccion direccion;
+	@ManyToOne()
+	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA")
+	private Persona persona;
 
 	public Provincia() {
 		super();
 	}
 
-	public Provincia(int idprovincia, String provincia, Direccion direccion) {
+	public Provincia(int idprovincia, String provincia) {
 		super();
 		this.idprovincia = idprovincia;
 		this.provincia = provincia;
-		this.direccion = direccion;
 	}
 
 	public int getIdprovincia() {
@@ -55,17 +57,18 @@ public class Provincia {
 		this.provincia = provincia;
 	}
 
-	public Direccion getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
-	}
-
 	@Override
 	public String toString() {
-		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Provincia [idprovincia=");
+		builder.append(idprovincia);
+		builder.append(", provincia=");
+		builder.append(provincia);
+		builder.append(", persona=");
+		builder.append(persona);
+		builder.append("]");
+		return builder.toString();
 	}
+
 
 }
