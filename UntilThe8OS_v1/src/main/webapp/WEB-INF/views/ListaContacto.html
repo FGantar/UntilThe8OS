@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/resources/styles.css">
 <title>Lista de Contactos</title>
 </head>
 <body>
-
+<h1>Lista de Contactos</h1>
+  
+    <center><table>
+      <tr class="principal">
+        <th class="contact">Contacto</th>
+        <th class="options">Opciones</th>
+      </tr>
+      <tr th:each="listaContactos : ${listaContactos}">
+        <td th:text="${contacto.nombre}"></td>
+        <td th:text>yes</td>
+      </tr>
+    </table></center>
 
 
 </body>
