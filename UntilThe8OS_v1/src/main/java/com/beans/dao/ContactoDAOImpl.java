@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.beans.spring.model.Persona;
 
 /**
+ * CLASE CONTACTODAOIMPL
  * Implementacion de la clase ContactoDAO, incluye el codigo principal de los metodos, listaContactos, vistaDetalleContacto,
  * vistaDetalleContacto, altaContacto, modificarContactp, borrarContacto
  * @author Jhon
