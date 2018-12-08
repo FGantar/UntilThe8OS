@@ -8,10 +8,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 /**
- * CLASE PROVINCIA
- * Contiene un id y el nombre de la provincia.
+ * CLASE PROVINCIA Contiene un id y el nombre de la provincia.
+ * 
  * @author Cristian G. Fortes
  * @version 05/12/2018
  *
@@ -27,7 +26,7 @@ public class Provincia {
 	@Column(name = "PROVINCIA")
 	private String provincia;
 
-	@OneToOne(mappedBy="provincia")
+	@OneToOne(mappedBy = "provincia")
 	private Direccion direccion;
 
 	public Provincia() {
@@ -66,5 +65,38 @@ public class Provincia {
 		return builder.toString();
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + idprovincia;
+		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Provincia other = (Provincia) obj;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (idprovincia != other.idprovincia)
+			return false;
+		if (provincia == null) {
+			if (other.provincia != null)
+				return false;
+		} else if (!provincia.equals(other.provincia))
+			return false;
+		return true;
+	}
 
 }

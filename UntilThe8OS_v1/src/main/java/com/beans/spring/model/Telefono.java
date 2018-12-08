@@ -10,8 +10,7 @@ import javax.persistence.Table;
 
 /**
  * 
- * CLASE TELEFONO
- * Clase telefono representa la tabla persona de la base de datos
+ * CLASE TELEFONO Clase telefono representa la tabla persona de la base de datos
  * 
  * @author Jorge Castellano
  * @version 04/12/2018
@@ -113,7 +112,5 @@ public class Telefono {
 			return false;
 		return true;
 	}
-
-	
 
 }
