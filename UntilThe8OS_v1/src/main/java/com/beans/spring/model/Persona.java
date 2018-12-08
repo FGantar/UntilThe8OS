@@ -20,7 +20,7 @@ import java.util.List;
  */
 
 @Entity
-@Table("PERSONA")
+@Table(name = "PERSONA")
 public class Persona {
 
 	@Id
@@ -47,7 +47,7 @@ public class Persona {
 	private List<Telefono> telefonos;
 
 	@OneToMany(mappedBy = "persona")
-	private List<Direccion> direcciones;
+	private List<Provincia> provincia;
 
 	public Persona() {
 		super();
@@ -109,18 +109,36 @@ public class Persona {
 		this.telefonos = telefonos;
 	}
 
-	public List<Direccion> getDirecciones() {
-		return direcciones;
+	public List<Provincia> getDirecciones() {
+		return provincia;
 	}
 
-	public void setDirecciones(List<Direccion> direcciones) {
-		this.direcciones = direcciones;
+	public void setDirecciones(List<Provincia> provincia) {
+		this.provincia = provincia;
 	}
 
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
-				+ ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Persona [idPersona=");
+		builder.append(idPersona);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", apellido1=");
+		builder.append(apellido1);
+		builder.append(", apellido2=");
+		builder.append(apellido2);
+		builder.append(", dni=");
+		builder.append(dni);
+		builder.append(", fechaNacimiento=");
+		builder.append(fechaNacimiento);
+		builder.append(", telefonos=");
+		builder.append(telefonos);
+		builder.append(", provincia=");
+		builder.append(provincia);
+		builder.append("]");
+		return builder.toString();
 	}
+	
 
 }

@@ -1,20 +1,20 @@
-package com.beans.spring.services;
+package com.beans.dao;
 
 import java.util.List;
 
 import com.beans.spring.model.Persona;
 
 /**
- * INTERFAZ CONTACTOSERVICIO
+ * Clase contactoDAO
  * 
- * @author Cristian G. Fortes
+ * @author John
  * @version 05/12/2018
- *
  */
-public interface ContactoServicio {
+
+public interface ContactoDAO {
 
 	public abstract List<Persona> listaContactos();
-
+	
 	public abstract Persona vistaDetalleContacto(int id);
 
 	public abstract void altaContacto(Persona persona);

@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beans.spring.model.Contacto;
-import com.beans.spring.dao.ContactoDAO;
-import com.beans.spring.dao.ContactoDAOImpl;
+import com.beans.dao.ContactoDAO;
+import com.beans.spring.model.Persona;
+
 
 /**
  * CLASE CONTACTOSERVICIO Establece la capa de servicios.
@@ -24,31 +24,34 @@ public class ContactoServicioImpl implements ContactoServicio {
 	ContactoDAO contactoDAO;
 
 	@Override
-	public List<Contacto> listaContactos() {
+	public List<Persona> listaContactos() {
 		return contactoDAO.listaContactos();
 	}
 
 	@Override
-	public Contacto vistaDetalleContacto(int id) {
+	public Persona vistaDetalleContacto(int id) {
 		return contactoDAO.vistaDetalleContacto(id);
 	}
 
 	@Override
-	public void altaContacto(Contacto contacto) {
-		contactoDAO.altaContacto(contacto);
+	public void altaContacto(Persona persona) {
+		contactoDAO.altaContacto(persona);
 
 	}
-
-	@Override
-	public void modificarContacto(int id) {
-		contactoDAO.modificarContacto(id);
-
-	}
+	
 
 	@Override
 	public void borrarContacto(int id) {
 		contactoDAO.borrarContacto(id);
 
 	}
+
+	@Override
+	public void modificarContacto(Persona persona) {
+		contactoDAO.modificarContacto(persona);
+		
+	}
+
+	
 
 }
