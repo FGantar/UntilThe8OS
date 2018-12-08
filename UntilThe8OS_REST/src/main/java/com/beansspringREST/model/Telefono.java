@@ -1,0 +1,78 @@
+package com.beansspringREST.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+/**
+ * Clase Telefono representa la tabla TELEFONO en la base de datos.
+ * 
+ * @author Rebeca
+ * @version 05/12/2018
+ *
+ */
+
+@Entity
+@Table(name = "TELEFONO")
+public class Telefono {
+
+
+	private int idtelefono;
+	private String telefono;
+	private int idpersona;
+
+	public Telefono() {
+		super();
+	}
+
+	public Telefono(int idtelefono, String telefono) {
+		super();
+		this.idtelefono = idtelefono;
+		this.telefono = telefono;
+	}
+
+	@Id
+	@GeneratedValue
+	@Column(name = "IDTELEFONO")
+	public int getIdtelefono() {
+		return idtelefono;
+	}
+
+	public void setIdtelefono(int idtelefono) {
+		this.idtelefono = idtelefono;
+	}
+
+	@Column(name = "TELEFONO")
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	
+	@Column(name = "IDPERSONA")
+	public int getIdPersona() {
+		return idpersona;
+	}
+
+	public void setIdPersona(int idpersona) {
+		this.idpersona = idpersona;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Telefono [idtelefono=");
+		builder.append(idtelefono);
+		builder.append(", telefono=");
+		builder.append(telefono);
+		builder.append(", persona=");
+		builder.append("]");
+		return builder.toString();
+	}
+
+}
