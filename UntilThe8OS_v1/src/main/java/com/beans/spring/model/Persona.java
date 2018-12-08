@@ -11,7 +11,8 @@ import javax.persistence.Table;
 import java.util.List;
 
 /**
- * CLASE PERSONA Clase persona es una entidad, representando la tabla persona en
+ * CLASE PERSONA 
+ * Clase persona es una entidad, representando la tabla persona en
  * la base de datos.
  * 
  * @author Cristian G. Fortes
@@ -47,7 +48,7 @@ public class Persona {
 	private List<Telefono> telefonos;
 
 	@OneToMany(mappedBy = "persona")
-	private List<Provincia> provincia;
+	private List<Direccion> direcciones;
 
 	public Persona() {
 		super();
@@ -109,12 +110,12 @@ public class Persona {
 		this.telefonos = telefonos;
 	}
 
-	public List<Provincia> getDirecciones() {
-		return provincia;
+	public List<Direccion> getDirecciones() {
+		return direcciones;
 	}
 
-	public void setDirecciones(List<Provincia> provincia) {
-		this.provincia = provincia;
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
 	}
 
 	@Override
@@ -134,8 +135,8 @@ public class Persona {
 		builder.append(fechaNacimiento);
 		builder.append(", telefonos=");
 		builder.append(telefonos);
-		builder.append(", provincia=");
-		builder.append(provincia);
+		builder.append(", direcciones=");
+		builder.append(direcciones);
 		builder.append("]");
 		return builder.toString();
 	}
