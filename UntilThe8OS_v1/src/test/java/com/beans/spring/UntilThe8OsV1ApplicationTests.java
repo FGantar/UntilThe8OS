@@ -12,7 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beans.dao.ContactoDAO;
+import com.beans.spring.dao.ContactoDAO;
 import com.beans.spring.model.Persona;
 
 @RunWith(SpringRunner.class)

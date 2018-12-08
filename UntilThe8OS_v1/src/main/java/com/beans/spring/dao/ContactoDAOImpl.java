@@ -1,4 +1,4 @@
-package com.beans.dao;
+package com.beans.spring.dao;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 	@Transactional
 	@Override
 	public List<Persona> listaContactos() {
-		String hql = "FROM PERSONA ORDER BY IDPERSONA";
+		String hql = "FROM Persona p ORDER BY p.idPersona";
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 	

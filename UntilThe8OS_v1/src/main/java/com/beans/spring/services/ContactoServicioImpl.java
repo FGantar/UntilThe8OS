@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beans.dao.ContactoDAO;
+import com.beans.spring.dao.ContactoDAO;
 import com.beans.spring.model.Persona;
 
 
@@ -21,7 +21,7 @@ import com.beans.spring.model.Persona;
 public class ContactoServicioImpl implements ContactoServicio {
 
 	@Autowired
-	ContactoDAO contactoDAO;
+	private ContactoDAO contactoDAO;
 
 	@Override
 	public List<Persona> listaContactos() {
