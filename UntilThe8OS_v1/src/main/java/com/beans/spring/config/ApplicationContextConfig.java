@@ -13,6 +13,15 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
+
+/**
+ * CONFIGURACIÓN
+ * Se establece la configuración del viewResolver mediante thymeleaf
+ * @author Cristian G. Fortes
+ * @version 05/12/2018
+ *
+ */
+
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.beans.spring")

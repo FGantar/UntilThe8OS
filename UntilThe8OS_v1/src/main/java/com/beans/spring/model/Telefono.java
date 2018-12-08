@@ -8,6 +8,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * 
+ * CLASE TELEFONO Clase telefono representa la tabla persona de la base de datos
+ * 
+ * @author Jorge Castellano
+ * @version 04/12/2018
+ */
+
 @Entity
 @Table(name = "TELEFONO")
 public class Telefono {
@@ -104,7 +112,5 @@ public class Telefono {
 			return false;
 		return true;
 	}
-
-	
 
 }

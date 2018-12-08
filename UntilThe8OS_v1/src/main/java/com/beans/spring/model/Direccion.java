@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,33 +17,31 @@ import javax.persistence.Table;
  *
  */
 
-
 @Entity
 @Table(name = "DIRECCION")
 public class Direccion {
 
 	@Id
 	@GeneratedValue
-	
+
 	@Column(name = "IDDIRECCION")
 	public int idDireccion;
-	
+
 	@Column(name = "DIRECCION")
 	public String direccion;
-	
+
 	@Column(name = "CODPOSTAL")
 	public int codPostal;
-	
+
 	@Column(name = "LOCALIDAD")
 	public String localidad;
-	
-	@Column(name = "IDPROVINCIA")
-	public int idProvincia;
-	
-	@Column(name = "IDPERSONA")
-	public int idPersona;
-	
-	@OneToOne(mappedBy = "direccion")
+
+	@ManyToOne()
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	public Persona persona;
+
+	@OneToOne()
+	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA")
 	private Provincia provincia;
 
 	public Direccion() {
@@ -80,20 +80,20 @@ public class Direccion {
 		this.localidad = localidad;
 	}
 
-	public int getIdProvincia() {
-		return idProvincia;
+	public Persona getPersona() {
+		return persona;
 	}
 
-	public void setIdProvincia(int idProvincia) {
-		this.idProvincia = idProvincia;
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
-	public int getIdPersona() {
-		return idPersona;
+	public Provincia getProvincia() {
+		return provincia;
 	}
 
-	public void setIdPersona(int idPersona) {
-		this.idPersona = idPersona;
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 
 	@Override
@@ -107,14 +107,61 @@ public class Direccion {
 		builder.append(codPostal);
 		builder.append(", localidad=");
 		builder.append(localidad);
-		builder.append(", idProvincia=");
-		builder.append(idProvincia);
-		builder.append(", idPersona=");
-		builder.append(idPersona);
+		builder.append(", persona=");
+		builder.append(persona);
+		builder.append(", provincia=");
+		builder.append(provincia);
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + codPostal;
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + idDireccion;
+		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
+		result = prime * result + ((persona == null) ? 0 : persona.hashCode());
+		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Direccion other = (Direccion) obj;
+		if (codPostal != other.codPostal)
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (idDireccion != other.idDireccion)
+			return false;
+		if (localidad == null) {
+			if (other.localidad != null)
+				return false;
+		} else if (!localidad.equals(other.localidad))
+			return false;
+		if (persona == null) {
+			if (other.persona != null)
+				return false;
+		} else if (!persona.equals(other.persona))
+			return false;
+		if (provincia == null) {
+			if (other.provincia != null)
+				return false;
+		} else if (!provincia.equals(other.provincia))
+			return false;
+		return true;
+	}
+
 }

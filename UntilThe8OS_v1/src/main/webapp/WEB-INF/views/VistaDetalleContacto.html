@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/resources/estiloVD.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="contact">
+            <ul>
+                <li>Nombre:<span th:text="${Persona.nombre}"></span></li>
+                <li>Apellidos:<span th:text="${Persona.apellido1}"></span></li>
+                <li>DNI:<span th:text="${Persona.dni}"></span></li>
+                <li>Fecha de nacimiento:<span th:text="${Persona.fechanacimiento}"></span></li>
+                <li>Direccion:<span th:text="${Direccion.direccion}"></span></li>
+                <li>Provincia:<span th:text="${Provincia.provincia}"></span></li>
+                <li>Telefono:<span th:text="${Telefono.telefono}"></span></li>
+            </ul>
+            <br>
+            <input name="/" type="submit" id="contact-submit" value="Volver a la lista de contactos" />
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
