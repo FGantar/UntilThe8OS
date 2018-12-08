@@ -12,6 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.beans.dao.ContactoDAO;
 import com.beans.spring.model.Persona;
 
 @RunWith(SpringRunner.class)
@@ -36,7 +37,7 @@ public class UntilThe8OsV1ApplicationTests {
 	 }
 	 
 	 @Autowired   
-	 private ContactoDao contactoDao;
+	 private ContactoDAO contactoDao;
 	 
 	 @Autowired   
 	 private Persona persona;
@@ -44,9 +45,9 @@ public class UntilThe8OsV1ApplicationTests {
 	 @Test
 	 public void alta() throws Exception {
 	       
-		 contactoDao.altaContaco(persona);	   
+		 contactoDao.altaContacto(persona);	   
 		 
-		 contactoDao.buscarPorId(persona);
+		 contactoDao.vistaDetalleContacto(persona.getId());
 		 
 		 assertNotNull(persona);
 		 
@@ -55,9 +56,9 @@ public class UntilThe8OsV1ApplicationTests {
 	 @Test
 	 public void borrar() throws Exception {
 	       
-		 contactoDao.borrarContaco(persona.getId());	   
+		 contactoDao.borrarContacto(persona.getId());	   
 		 
-		 contactoDao.buscarPorId(persona);
+		 contactoDao.vistaDetalleContacto(persona.getId());
 		 
 		 assertNull(persona);
 		 
