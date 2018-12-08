@@ -27,9 +27,8 @@ public class Provincia {
 	@Column(name = "PROVINCIA")
 	private String provincia;
 
-	@ManyToOne()
-	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA")
-	private Persona persona;
+	@OneToOne(mappedBy="provincia")
+	private Direccion direccion;
 
 	public Provincia() {
 		super();
