@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,6 +34,13 @@ public class ControladorMVC {
 		return model;
 	}
 
+	@RequestMapping(value = "/new")
+	public ModelAndView newUser(@ModelAttribute Persona persona) {
+		ModelAndView model = new ModelAndView("AltaContacto");
+		model.addObject("Persona", new Persona());
+		return model;		
+	}
+	
 	@RequestMapping("/detalle")
 	public ModelAndView vistaDetalleContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
@@ -43,15 +51,16 @@ public class ControladorMVC {
 
 	@RequestMapping("/alta")
 	public ModelAndView altaContacto(@ModelAttribute Persona persona) {
-		ModelAndView model = new ModelAndView("AltaContacto");
-		model.addObject("contacto", new Persona());
-		return model;
+		//ModelAndView model = new ModelAndView("AltaContacto");
+		//model.addObject("contacto", new Persona());
+		contactoServicio.altaContacto(persona);
+		return new ModelAndView("redirect:/");
 	}
 
 	@RequestMapping("/modificar")
 	public ModelAndView modificarContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
-		ModelAndView model = new ModelAndView("AltaContacto");
+		ModelAndView model = new ModelAndView("AltaContactoa");
 		model.addObject("contacto", persona);
 		return model;
 	}

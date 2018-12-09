@@ -41,6 +41,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 		return entityManager.find(Persona.class, id);
 	}
 
+	@Transactional
 	@Override
 	public void altaContacto(Persona persona) {
 		entityManager.merge(persona);
@@ -55,7 +56,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 		nuevaPersona.setApellido2(persona.getApellido2());
 		nuevaPersona.setDni(persona.getDni());
 		nuevaPersona.setDirecciones(persona.getDirecciones());
-		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento());
+		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento().toString());
 		nuevaPersona.setTelefonos(persona.getTelefonos());
 		
 		entityManager.flush();
