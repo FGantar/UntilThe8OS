@@ -13,10 +13,10 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
-
 /**
- * CONFIGURACIÓN
- * Se establece la configuración del viewResolver mediante thymeleaf
+ * CONFIGURACIÓN Se establece la configuración del viewResolver mediante
+ * thymeleaf
+ * 
  * @author Cristian G. Fortes
  * @version 05/12/2018
  *
@@ -56,7 +56,8 @@ public class ApplicationContextConfig {
 	}
 
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/static/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/resources/static/css/");
+
 	}
 
 }
