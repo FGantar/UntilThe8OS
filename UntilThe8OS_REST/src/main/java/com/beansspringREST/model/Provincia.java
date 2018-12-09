@@ -28,6 +28,7 @@ public class Provincia {
 
 	@Column(name = "PROVINCIA")
 	private String provincia;
+	
 
 	public Provincia() {
 		super();

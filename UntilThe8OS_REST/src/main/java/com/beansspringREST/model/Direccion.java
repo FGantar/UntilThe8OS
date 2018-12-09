@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Clase Direccion representa la tabla DIRECCION en la base de datos.
@@ -30,6 +33,7 @@ public class Direccion {
 	private int idProvincia;	
 	private int idPersona;
 	private Provincia provincia;
+
 
 	public Direccion() {
 		super();
@@ -82,7 +86,7 @@ public class Direccion {
 		this.idProvincia = idProvincia;
 	}
 
-	@Column(name = "IDPERSONA")
+	@Column(name = "IDPERSONA",insertable = false, updatable = false)
 	public int getIdPersona() {
 		return idPersona;
 	}
@@ -90,7 +94,6 @@ public class Direccion {
 	public void setIdPersona(int idPersona) {
 		this.idPersona = idPersona;
 	}
-	
 	
 	@OneToOne()
 	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA",insertable = false, updatable = false)
@@ -101,6 +104,9 @@ public class Direccion {
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
+	
+
+	
 
 	@Override
 	public String toString() {

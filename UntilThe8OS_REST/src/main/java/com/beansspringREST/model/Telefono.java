@@ -1,10 +1,19 @@
 package com.beansspringREST.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
@@ -23,6 +32,7 @@ public class Telefono {
 	private int idtelefono;
 	private String telefono;
 	private int idpersona;
+	private Persona persona;
 
 	public Telefono() {
 		super();
@@ -35,7 +45,7 @@ public class Telefono {
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "IDTELEFONO")
 	public int getIdtelefono() {
 		return idtelefono;
@@ -54,13 +64,24 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 	
-	@Column(name = "IDPERSONA")
+	@Column(name = "IDPERSONA",insertable = false, updatable = false)
 	public int getIdPersona() {
 		return idpersona;
 	}
 
 	public void setIdPersona(int idpersona) {
 		this.idpersona = idpersona;
+	}
+	
+	@JsonIgnore
+	@ManyToOne()
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
 	@Override

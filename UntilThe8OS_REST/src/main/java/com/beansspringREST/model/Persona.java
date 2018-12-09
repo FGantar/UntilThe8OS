@@ -1,6 +1,8 @@
 package com.beansspringREST.model;
 
 import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +34,9 @@ public class Persona {
 	private Set<Telefono> telefonos;
 	private Set<Direccion> direcciones;
 
-
+	public Persona() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue
@@ -45,6 +49,7 @@ public class Persona {
 		this.idpersona = id;
 	}
 
+	@Column(name = "NOMBRE")
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,6 +58,7 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
+	@Column(name = "APELLIDO1")
 	public String getApellido1() {
 		return apellido1;
 	}
@@ -61,6 +67,7 @@ public class Persona {
 		this.apellido1 = apellido1;
 	}
 
+	@Column(name = "APELLIDO2")
 	public String getApellido2() {
 		return apellido2;
 	}
@@ -69,6 +76,7 @@ public class Persona {
 		this.apellido2 = apellido2;
 	}
 
+	@Column(name = "DNI")
 	public String getDni() {
 		return dni;
 	}
@@ -86,7 +94,7 @@ public class Persona {
 		this.fechanacimiento = fechaNacimiento;
 	}
 	
-	@OneToMany()
+	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
 	public Set<Telefono> getTelefonos() {
 		return telefonos;
@@ -96,7 +104,7 @@ public class Persona {
 		this.telefonos = telefonos;
 	}
 	
-	@OneToMany()
+	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
 	public Set<Direccion> getDirecciones() {
 		return direcciones;
