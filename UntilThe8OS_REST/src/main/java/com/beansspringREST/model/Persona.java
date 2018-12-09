@@ -1,5 +1,6 @@
 package com.beansspringREST.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+
+import java.util.List;
 import java.util.Set;
 
 
@@ -94,8 +99,9 @@ public class Persona {
 		this.fechanacimiento = fechaNacimiento;
 	}
 	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+
+	@OneToMany(cascade = {CascadeType.ALL},orphanRemoval=true)
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", nullable=false)
 	public Set<Telefono> getTelefonos() {
 		return telefonos;
 	}
@@ -104,8 +110,9 @@ public class Persona {
 		this.telefonos = telefonos;
 	}
 	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	
+	@OneToMany(cascade = {CascadeType.ALL},orphanRemoval=true)
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", nullable=false)
 	public Set<Direccion> getDirecciones() {
 		return direcciones;
 	}
@@ -114,29 +121,5 @@ public class Persona {
 		this.direcciones = direcciones;
 	}
 
-	/*
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Persona [idPersona=");
-		builder.append(idPersona);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append(", apellido1=");
-		builder.append(apellido1);
-		builder.append(", apellido2=");
-		builder.append(apellido2);
-		builder.append(", dni=");
-		builder.append(dni);
-		builder.append(", fechaNacimiento=");
-		builder.append(fechaNacimiento);
-		builder.append(", telefonos=");
-		builder.append(telefonos);
-		builder.append(", direccion=");
-		builder.append(direccion);
-		builder.append("]");
-		return builder.toString();
-	}
-	*/
-
+	
 }

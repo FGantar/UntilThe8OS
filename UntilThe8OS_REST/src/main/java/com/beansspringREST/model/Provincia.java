@@ -1,12 +1,16 @@
 package com.beansspringREST.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -22,12 +26,10 @@ import javax.persistence.Table;
 @Table(name = "PROVINCIA")
 public class Provincia {
 
-	@Id
-	@Column(name = "IDPROVINCIA")
-	private int idprovincia;
 
-	@Column(name = "PROVINCIA")
-	private String provincia;
+	private int idprovincia;
+	private String provincia;	
+	private Direccion direccion;
 	
 
 	public Provincia() {
@@ -40,6 +42,9 @@ public class Provincia {
 		this.provincia = provincia;
 	}
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IDPROVINCIA")
 	public int getIdprovincia() {
 		return idprovincia;
 	}
@@ -48,6 +53,7 @@ public class Provincia {
 		this.idprovincia = idprovincia;
 	}
 
+	@Column(name = "PROVINCIA")
 	public String getProvincia() {
 		return provincia;
 	}
@@ -55,18 +61,17 @@ public class Provincia {
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Provincia [idprovincia=");
-		builder.append(idprovincia);
-		builder.append(", provincia=");
-		builder.append(provincia);
-		builder.append(", persona=");
-		builder.append("]");
-		return builder.toString();
+	
+	@OneToOne()
+	@JsonIgnore
+	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA",insertable = false, updatable = false)
+	public Direccion getDireccion() {
+		return direccion;
 	}
 
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 
+	
 }

@@ -39,30 +39,14 @@ public class ContactoRepository implements IContactoRepository{
 	@Override
 	@Transactional
 	public List<Persona> listaContactos(){
-		
-		String hql = "SELECT DISTINCT persona FROM Persona persona "+
-		"left join fetch persona.telefonos as telefonos " +
-		"left join fetch persona.direcciones as direcciones " +
-		"left join fetch direcciones.provincia as provincia ORDER BY persona.id";
+		String hql = "FROM Persona p ORDER BY p.id";
 		return (List<Persona>) entityManager.createQuery(hql).getResultList();
 	}
 	
 	@Override
 	@Transactional
 	public Persona vistaDetalleContacto(int id){
-		
-		/*
-		String hql = "SELECT DISTINCT persona FROM Persona persona "+
-		"left join fetch persona.telefonos as telefonos " +
-		"left join fetch persona.direcciones as direcciones " +
-		"left join fetch direcciones.provincia as provincia " +
-		"WHERE persona.id = :idpersona";
-		Query query = entityManager.createQuery(hql);
-		query.setParameter("idpersona", id);
-		return (Persona) query.getSingleResult();
-		*/
 		return entityManager.find(Persona.class, id);
-
 	}
 
 	@Override
@@ -77,17 +61,7 @@ public class ContactoRepository implements IContactoRepository{
 	@Override
 	@Transactional
 	public Optional<Persona> modificarContacto(Persona persona) {
-		Persona nuevaPersona = vistaDetalleContacto(persona.getId());
-		
-		nuevaPersona.setNombre(persona.getNombre());
-		nuevaPersona.setApellido1(persona.getApellido1());
-		nuevaPersona.setApellido2(persona.getApellido2());
-		nuevaPersona.setDni(persona.getDni());
-		nuevaPersona.setDirecciones(persona.getDirecciones());
-		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento());
-		nuevaPersona.setTelefonos(persona.getTelefonos());
-		
-		entityManager.flush();
+		entityManager.merge(persona);
 		
 		return Optional.ofNullable(persona);
 		

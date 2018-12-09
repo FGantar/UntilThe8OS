@@ -31,7 +31,6 @@ public class Telefono {
 
 	private int idtelefono;
 	private String telefono;
-	private int idpersona;
 	private Persona persona;
 
 	public Telefono() {
@@ -63,37 +62,15 @@ public class Telefono {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
-	@Column(name = "IDPERSONA",insertable = false, updatable = false)
-	public int getIdPersona() {
-		return idpersona;
-	}
 
-	public void setIdPersona(int idpersona) {
-		this.idpersona = idpersona;
-	}
-	
 	@JsonIgnore
-	@ManyToOne()
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA",insertable = false, updatable = false)
 	public Persona getPersona() {
 		return persona;
 	}
 
 	public void setPersona(Persona persona) {
 		this.persona = persona;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Telefono [idtelefono=");
-		builder.append(idtelefono);
-		builder.append(", telefono=");
-		builder.append(telefono);
-		builder.append(", persona=");
-		builder.append("]");
-		return builder.toString();
-	}
-
+	}	
 }
