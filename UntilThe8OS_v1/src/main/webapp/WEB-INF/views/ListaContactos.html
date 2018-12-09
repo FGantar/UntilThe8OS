@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/styles.css">
+<link rel="stylesheet" type="text/css" href="resources/static/css/styles.css">
 <title>Lista de Contactos</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <th class="options">Opciones</th>
       </tr>
       <tr th:each="listaContactos : ${listaContactos}">
-        <td th:text="${Persona.nombre}"></td>
+        <td th:text="${listaContactos.nombre}"></td>
         <td th:button></td>
       </tr>
     </table></center>

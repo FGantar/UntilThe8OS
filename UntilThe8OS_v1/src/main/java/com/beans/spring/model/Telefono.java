@@ -73,8 +73,7 @@ public class Telefono {
 		builder.append(idtelefono);
 		builder.append(", telefono=");
 		builder.append(telefono);
-		builder.append(", persona=");
-		builder.append(persona);
+
 		builder.append("]");
 		return builder.toString();
 	}

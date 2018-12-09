@@ -36,7 +36,7 @@ public class UntilThe8OsV1ApplicationTests {
 	        assertThat(1).isSameAs(model).isEqualTo(this.restTemplate.getForObject("http://localhost:8080/",ModelAndView.class));
 	 }
 	 
-	 @Autowired   
+	/* @Autowired   
 	 private ContactoDAO contactoDao;
 	 
 	 @Autowired   
@@ -50,10 +50,10 @@ public class UntilThe8OsV1ApplicationTests {
 		 contactoDao.vistaDetalleContacto(persona.getId());
 		 
 		 assertNotNull(persona);
-		 
-	 }
+		}
+		 */
 	 
-	 @Test
+/*	 @Test
 	 public void borrar() throws Exception {
 	       
 		 contactoDao.borrarContacto(persona.getId());	   
@@ -63,5 +63,5 @@ public class UntilThe8OsV1ApplicationTests {
 		 assertNull(persona);
 		 
 	 }
-
+*/
 }

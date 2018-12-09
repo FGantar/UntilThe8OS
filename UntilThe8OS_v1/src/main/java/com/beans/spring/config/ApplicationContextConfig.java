@@ -44,6 +44,7 @@ public class ApplicationContextConfig {
 		templateResolver.setApplicationContext(this.applicationContext);
 		templateResolver.setPrefix("/WEB-INF/views/");
 		templateResolver.setSuffix(".html");
+		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
 	}
 
@@ -55,7 +56,7 @@ public class ApplicationContextConfig {
 	}
 
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/static/");
 	}
 
 }

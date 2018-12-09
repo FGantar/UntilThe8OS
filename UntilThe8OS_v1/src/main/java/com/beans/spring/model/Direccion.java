@@ -107,8 +107,7 @@ public class Direccion {
 		builder.append(codPostal);
 		builder.append(", localidad=");
 		builder.append(localidad);
-		builder.append(", persona=");
-		builder.append(persona);
+
 		builder.append(", provincia=");
 		builder.append(provincia);
 		builder.append("]");
