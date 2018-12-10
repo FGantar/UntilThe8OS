@@ -17,12 +17,21 @@
                 <li>Apellidos:<span th:text="${vistaDetalleContacto.apellido1}"></span></li>
                 <li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
                 <li>Fecha de nacimiento:<span th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
-                <li>Direccion:<span th:text="${vistaDetalleContacto.direcciones}"></span></li>
-                
-                <li>Telefono:<span th:text="${vistaDetalleContacto.telefonos}"></span></li>
+                <li>Direccion:<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
+                        <span th:text="${vistaDetalleContacto.direccion}" />
+                        <span th:text="${vistaDetalleContacto.codPostal}" />
+                        <span th:text="${vistaDetalleContacto.localidad}" />
+                        <span th:text="${vistaDetalleContacto.provincia.provincia}" />
+                    </div>
+                </li>
+
+                <li>Telefono:<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
+                        <span th:text="${vistaDetalleContacto.telefono}" />
+                    </div>
+                </li>
             </ul>
             <br>
-            <input name="/" type="submit" id="contact-submit" value="Volver a la lista de contactos" />
+            <a href="" th:href="@{/}"><button>Volver a la lista de contactos</button></a>
         </div>
 
 

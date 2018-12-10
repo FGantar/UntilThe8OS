@@ -8,7 +8,7 @@
 
 <body>
     <h1>Lista de Contactos</h1>
-
+    <a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
     <center>
         <table>
             <tr class="principal">
@@ -19,7 +19,7 @@
                 <td th:text="${listaContactos.nombre}"></td>
                 <td>
                     <a href="detalle?idPersona=${listaContactos.idPersona}" th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
-                    <a href="modificar?idPersona=${listaContactos.idPersona}" th:href="@{/modificar(idPersona=${listaContactos.idPersona})}">
+                    <a href="new?idPersona=${listaContactos.idPersona}" th:href="@{/new(idPersona=${listaContactos.idPersona})}">
                         <button>Editar</button></a>
                     <a href="borrar?idPersona=${listaContactos.idPersona}" th:href="@{/borrar(idPersona=${listaContactos.idPersona})}">
                         <button>Borrar</button></a>
