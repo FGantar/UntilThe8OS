@@ -29,7 +29,7 @@ table{
 .contact{
     font-size: 20px;
     text-align: center;
-    width: 95%;
+    width: 80%;
     height: auto;
     border-top-left-radius: 10px;
 }
@@ -44,4 +44,10 @@ table{
 
 td{
     text-align: left
+}
+
+button{
+    border-radius: 15px;
+    font-size:10px;
+    background-color: aliceblue
 }
