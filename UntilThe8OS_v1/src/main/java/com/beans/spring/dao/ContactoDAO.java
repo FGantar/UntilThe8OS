@@ -17,7 +17,7 @@ public interface ContactoDAO {
 	
 	public abstract Persona vistaDetalleContacto(int id);
 
-	public abstract void altaContacto(Persona persona);
+	public abstract Persona altaContacto(Persona persona);
 
 	public abstract void modificarContacto(Persona persona);
 

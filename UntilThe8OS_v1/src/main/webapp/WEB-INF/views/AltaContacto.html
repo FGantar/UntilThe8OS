@@ -23,8 +23,16 @@
         <fieldset>
       <input placeholder="dni" th:value="${Persona.dni}" th:name="dni" th:id="dni" type="text" tabindex="1">
     </fieldset>
+    <fieldset>
+      <input placeholder="telefono" th:value="${Persona.telefonos}" th:name="telefonos" th:id="telefonos" type="text" tabindex="1">
+    </fieldset>
         <fieldset>
-      <input placeholder="Fecha de nacimiento" th:value="${Persona.fechaNacimiento}" th:name="fechaNacimiento" th:id="fechaNacimiento" type="date" tabindex="1">
+      <input placeholder="direccion" th:value="${Persona.direcciones.direccion}" th:name="direcciones" th:id="direcciones" type="text" tabindex="1">
+    </fieldset>
+      
+        <fieldset>
+      <input placeholder="Fecha de nacimiento" th:value="${Persona.fechaNacimiento
+      }" th:name="fechaNacimiento" th:id="fechaNacimiento" type="date" tabindex="1">
     </fieldset>
     <fieldset>
      <input type="submit" id="contact-submit" value="Añadir nuevo contacto" />

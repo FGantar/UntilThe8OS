@@ -53,6 +53,7 @@ public class ControladorMVC {
 	public ModelAndView altaContacto(@ModelAttribute Persona persona) {
 		//ModelAndView model = new ModelAndView("AltaContacto");
 		//model.addObject("contacto", new Persona());
+		System.out.println(persona);
 		contactoServicio.altaContacto(persona);
 		return new ModelAndView("redirect:/");
 	}

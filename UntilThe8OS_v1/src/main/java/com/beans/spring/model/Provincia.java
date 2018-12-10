@@ -27,6 +27,7 @@ public class Provincia {
 	private String provincia;
 
 	@OneToOne(mappedBy = "provincia")
+	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA",insertable = false, updatable = false)
 	private Direccion direccion;
 
 	public Provincia() {

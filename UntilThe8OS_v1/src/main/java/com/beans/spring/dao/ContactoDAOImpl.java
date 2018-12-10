@@ -40,11 +40,13 @@ public class ContactoDAOImpl implements ContactoDAO {
 	public Persona vistaDetalleContacto(int id) {
 		return entityManager.find(Persona.class, id);
 	}
-
+	
 	@Transactional
 	@Override
-	public void altaContacto(Persona persona) {
+	public Persona altaContacto(Persona persona) {
 		entityManager.merge(persona);
+		
+		return persona;
 	}
 	
 	@Override
@@ -57,7 +59,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 		nuevaPersona.setDni(persona.getDni());
 		nuevaPersona.setDirecciones(persona.getDirecciones());
 		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento().toString());
-		nuevaPersona.setTelefonos(persona.getTelefonos());
+		nuevaPersona.setTelefonos(persona.getTelefonos().toString());
 		
 		entityManager.flush();
 		

@@ -1,5 +1,6 @@
 package com.beans.spring.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,10 +37,12 @@ public class Direccion {
 	@Column(name = "LOCALIDAD")
 	public String localidad;
 
-	@ManyToOne()
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA",insertable = false, updatable = false)
 	public Persona persona;
 
+	
 	@OneToOne()
 	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA")
 	private Provincia provincia;

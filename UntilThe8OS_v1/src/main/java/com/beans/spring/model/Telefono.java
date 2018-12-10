@@ -1,5 +1,6 @@
 package com.beans.spring.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +29,8 @@ public class Telefono {
 	@Column(name = "TELEFONO")
 	private String telefono;
 
-	@ManyToOne()
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA",insertable = false, updatable = false)
 	private Persona persona;
 
 	public Telefono() {

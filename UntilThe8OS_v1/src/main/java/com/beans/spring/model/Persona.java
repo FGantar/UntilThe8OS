@@ -2,15 +2,18 @@ package com.beans.spring.model;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,10 +49,12 @@ public class Persona {
 	@Column(name = "FECHANACIMIENTO")
 	private Date fechaNacimiento;
 
-	@OneToMany(mappedBy = "persona")
+	@OneToMany(cascade = { CascadeType.ALL }, orphanRemoval=true)
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", nullable=false)
 	private List<Telefono> telefonos;
 
-	@OneToMany(mappedBy = "persona")
+	@OneToMany(cascade = { CascadeType.ALL },orphanRemoval=true)
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", nullable=false)
 	private List<Direccion> direcciones;
 
 	public Persona() {
@@ -101,15 +106,23 @@ public class Persona {
 	}
 
 	public void setFechaNacimiento(String fechaNacimiento) {
-		this.fechaNacimiento = java.sql.Date.valueOf(fechaNacimiento);
+		this.fechaNacimiento = Date.valueOf(fechaNacimiento);
 	}
 
 	public List<Telefono> getTelefonos() {
 		return telefonos;
 	}
 
-	public void setTelefonos(List<Telefono> telefonos) {
-		this.telefonos = telefonos;
+	public void setTelefonos(String telefonos) {
+		
+		System.out.println(telefonos);
+		Telefono t= new Telefono();
+		t.setTelefono(telefonos);
+		List<Telefono> telefonos2 = new ArrayList<>();
+		telefonos2.add(t);
+		this.telefonos=telefonos2;
+		System.out.println(telefonos);
+		
 	}
 
 	public List<Direccion> getDirecciones() {
