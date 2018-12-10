@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/resources/static/css/styles.css" th:href="@{static/css/styles.css}" />
+    <spring:url value="resources/static/css/styles.css" var="styles"/>
+    <link th:href="${styles}" rel="stylesheet" /> 
+    <link rel="stylesheet" type="text/css" href="/resources/static/css/styles.css" th:href="@{resources/static/css/styles.css}" />
     <title>Lista de Contactos</title>
 </head>
 
