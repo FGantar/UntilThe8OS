@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +29,7 @@ public class ControladorMVC {
 	@Autowired
 	private ContactoServicio contactoServicio;
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public ModelAndView listaContactos() {
 		List<Persona> listaContactos = contactoServicio.listaContactos();
 		ModelAndView model = new ModelAndView("ListaContactos");
@@ -41,7 +44,7 @@ public class ControladorMVC {
 		return model;		
 	}
 	
-	@RequestMapping("/detalle")
+	@GetMapping("/detalle")
 	public ModelAndView vistaDetalleContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
 		ModelAndView model = new ModelAndView("VistaDetalleContacto");
@@ -58,15 +61,15 @@ public class ControladorMVC {
 		return new ModelAndView("redirect:/");
 	}
 
-	@RequestMapping("/modificar")
+	@PutMapping("/modificar")
 	public ModelAndView modificarContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
-		ModelAndView model = new ModelAndView("AltaContactoa");
+		ModelAndView model = new ModelAndView("AltaContacto");
 		model.addObject("contacto", persona);
 		return model;
 	}
 
-	@RequestMapping("/borrar")
+	@GetMapping("/borrar")
 	public ModelAndView borrarContacto(@RequestParam("idPersona") int id) {
 		contactoServicio.borrarContacto(id);
 		return new ModelAndView("redirect:/");

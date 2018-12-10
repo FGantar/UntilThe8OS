@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: UntilThe8OS_REST
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: admin
+Implementation-Vendor-Id: com.beans-springREST
+Build-Jdk: 1.8.0_112
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/proyecto2_REST
+Created-By: Maven Integration for Eclipse
+

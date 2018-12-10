@@ -1,4 +1,4 @@
-package com.beans.spring.config;
+package com.beansspringREST.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -12,15 +12,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-
-/**
- * CONFIGURACIÓN Se establece la configuración del viewResolver mediante
- * thymeleaf
- * 
- * @author Cristian G. Fortes
- * @version 05/12/2018
- *
- */
 
 @Configuration
 @EnableWebMvc
@@ -44,7 +35,6 @@ public class ApplicationContextConfig {
 		templateResolver.setApplicationContext(this.applicationContext);
 		templateResolver.setPrefix("/WEB-INF/views/");
 		templateResolver.setSuffix(".html");
-		templateResolver.setTemplateMode("HTML5");
 		return templateResolver;
 	}
 
@@ -56,8 +46,7 @@ public class ApplicationContextConfig {
 	}
 
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("/resources/static/css/");
-
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
 }
