@@ -44,9 +44,10 @@ public class ControladorMVC {
 		return model;		
 	}
 	
-	@RequestMapping("/detalle")
+	@GetMapping("/detalle")
 	public ModelAndView vistaDetalleContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
+		System.out.println(persona);
 		ModelAndView model = new ModelAndView("VistaDetalleContacto");
 		model.addObject("vistaDetalleContacto", persona);
 		return model;
@@ -63,12 +64,12 @@ public class ControladorMVC {
 	@PutMapping("/modificar")
 	public ModelAndView modificarContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
-		ModelAndView model = new ModelAndView("AltaContactoa");
+		ModelAndView model = new ModelAndView("AltaContacto");
 		model.addObject("contacto", persona);
 		return model;
 	}
 
-	@DeleteMapping("/borrar")
+	@GetMapping("/borrar")
 	public ModelAndView borrarContacto(@RequestParam("idPersona") int id) {
 		contactoServicio.borrarContacto(id);
 		return new ModelAndView("redirect:/");

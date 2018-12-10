@@ -29,7 +29,7 @@ public class Persona {
 	@Id
 	@GeneratedValue
 	@Column(name = "IDPERSONA")
-	private int idPersona;
+	public int idPersona;
 
 	@Column(name = "NOMBRE")
 	private String nombre;

@@ -13,13 +13,13 @@
 
         <div id="contact">
             <ul>
-                <li>Nombre:<span th:text="${Persona.nombre}"></span></li>
-                <li>Apellidos:<span th:text="${Persona.apellido1}"></span></li>
-                <li>DNI:<span th:text="${Persona.dni}"></span></li>
-                <li>Fecha de nacimiento:<span th:text="${Persona.fechanacimiento}"></span></li>
-                <li>Direccion:<span th:text="${Direccion.direccion}"></span></li>
-                <li>Provincia:<span th:text="${Provincia.provincia}"></span></li>
-                <li>Telefono:<span th:text="${Telefono.telefono}"></span></li>
+                <li>Nombre:<span th:text="${vistaDetalleContacto.nombre}"></span></li>
+                <li>Apellidos:<span th:text="${vistaDetalleContacto.apellido1}"></span></li>
+                <li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
+                <li>Fecha de nacimiento:<span th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
+                <li>Direccion:<span th:text="${vistaDetalleContacto.direcciones}"></span></li>
+                
+                <li>Telefono:<span th:text="${vistaDetalleContacto.telefonos}"></span></li>
             </ul>
             <br>
             <input name="/" type="submit" id="contact-submit" value="Volver a la lista de contactos" />

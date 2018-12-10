@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../../css/styles.css" th:href="@{static/css/styles.css}"/>
-<title>Lista de Contactos</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/resources/static/css/styles.css" th:href="@{static/css/styles.css}" />
+    <title>Lista de Contactos</title>
 </head>
+
 <body>
-<h1>Lista de Contactos</h1>
-  
-    <center><table>
-      <tr class="principal">
-        <th class="contact">Contacto</th>
-        <th class="options">Opciones</th>
-      </tr>
-      <tr th:each="listaContactos : ${listaContactos}">
-        <td th:text="${listaContactos.nombre}"></td>
-        <td>
-            <button>Editar</button>
-            <button>Ver</button>
-        </td>
-      </tr>
-    </table></center>
+    <h1>Lista de Contactos</h1>
+
+    <center>
+        <table>
+            <tr class="principal">
+                <th class="contact">Contacto</th>
+                <th class="options">Opciones</th>
+            </tr>
+            <tr th:each="listaContactos : ${listaContactos}">
+                <td th:text="${listaContactos.nombre}"></td>
+                <td>
+                    <a href="detalle?idPersona=${listaContactos.idPersona}" th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
+                    <a href="modificar?idPersona=${listaContactos.idPersona}" th:href="@{/modificar(idPersona=${listaContactos.idPersona})}">
+                        <button>Editar</button></a>
+                    <a href="borrar?idPersona=${listaContactos.idPersona}" th:href="@{/borrar(idPersona=${listaContactos.idPersona})}">
+                        <button>Borrar</button></a>
+                </td>
+            </tr>
+        </table>
+    </center>
 
 
 </body>
