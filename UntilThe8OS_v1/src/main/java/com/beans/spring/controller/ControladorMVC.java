@@ -47,7 +47,6 @@ public class ControladorMVC {
 	@GetMapping("/detalle")
 	public ModelAndView vistaDetalleContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
-		System.out.println(persona);
 		ModelAndView model = new ModelAndView("VistaDetalleContacto");
 		model.addObject("vistaDetalleContacto", persona);
 		return model;
