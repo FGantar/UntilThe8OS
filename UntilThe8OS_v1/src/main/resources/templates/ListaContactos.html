@@ -2,9 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <spring:url value="resources/static/css/styles.css" var="styles"/>
-    <link th:href="${styles}" rel="stylesheet" /> 
-    <link rel="stylesheet" type="text/css" href="/resources/static/css/styles.css" th:href="@{resources/static/css/styles.css}" />
+    <link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}" />
     <title>Lista de Contactos</title>
 </head>
 
@@ -13,7 +11,8 @@
    <div class="container">
     <h1>Lista de Contactos</h1>
     <a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
-    <center>
+   <center>
+    <div id="contact">
         <table>
             <tr class="principal">
                 <th class="contact">Contacto</th>
@@ -30,7 +29,8 @@
                 </td>
             </tr>
         </table>
-    </center>
+        </div>
+   </center>
 
 </div>
 </div>

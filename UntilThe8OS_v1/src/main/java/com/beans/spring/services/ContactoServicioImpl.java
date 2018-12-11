@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.beans.spring.dao.ContactoDAO;
 import com.beans.spring.model.Persona;
 
-
 /**
  * CLASE CONTACTOSERVICIO Establece la capa de servicios.
  * 
@@ -38,7 +37,6 @@ public class ContactoServicioImpl implements ContactoServicio {
 		contactoDAO.altaContacto(persona);
 
 	}
-	
 
 	@Override
 	public void borrarContacto(int id) {
@@ -49,9 +47,7 @@ public class ContactoServicioImpl implements ContactoServicio {
 	@Override
 	public void modificarContacto(Persona persona) {
 		contactoDAO.modificarContacto(persona);
-		
-	}
 
-	
+	}
 
 }

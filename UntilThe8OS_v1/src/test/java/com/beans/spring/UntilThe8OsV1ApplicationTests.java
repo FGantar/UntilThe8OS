@@ -20,48 +20,47 @@ import com.beans.spring.model.Persona;
 public class UntilThe8OsV1ApplicationTests {
 
 	@Autowired
-    private TestRestTemplate restTemplate;
-	
+	private TestRestTemplate restTemplate;
+
 	@Autowired
 	private ModelAndView model;
-	
+
 	@Test
 	public void contextLoads() {
 	}
-	
-	 @Test
-	 public void controller() throws Exception {
-	       
-	 
-	        assertThat(1).isSameAs(model).isEqualTo(this.restTemplate.getForObject("http://localhost:8080/",ModelAndView.class));
-	 }
-	 
-	/* @Autowired   
-	 private ContactoDAO contactoDao;
-	 
-	 @Autowired   
-	 private Persona persona;
-	 
-	 @Test
-	 public void alta() throws Exception {
-	       
-		 contactoDao.altaContacto(persona);	   
-		 
-		 contactoDao.vistaDetalleContacto(persona.getId());
-		 
-		 assertNotNull(persona);
-		}
-		 */
-	 
-/*	 @Test
-	 public void borrar() throws Exception {
-	       
-		 contactoDao.borrarContacto(persona.getId());	   
-		 
-		 contactoDao.vistaDetalleContacto(persona.getId());
-		 
-		 assertNull(persona);
-		 
-	 }
-*/
+
+	@Test
+	public void controller() throws Exception {
+
+		assertThat(1).isSameAs(model)
+				.isEqualTo(this.restTemplate.getForObject("http://localhost:8080/", ModelAndView.class));
+	}
+
+	@Autowired
+	private ContactoDAO contactoDao;
+
+	@Autowired
+	private Persona persona;
+
+	@Test
+	public void alta() throws Exception {
+
+		contactoDao.altaContacto(persona);
+
+		contactoDao.vistaDetalleContacto(persona.getId());
+
+		assertNotNull(persona);
+	}
+
+	@Test
+	public void borrar() throws Exception {
+
+		contactoDao.borrarContacto(persona.getId());
+
+		contactoDao.vistaDetalleContacto(persona.getId());
+
+		assertNull(persona);
+
+	}
+
 }

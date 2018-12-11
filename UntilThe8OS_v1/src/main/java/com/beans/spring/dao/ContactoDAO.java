@@ -14,10 +14,10 @@ import com.beans.spring.model.Persona;
 public interface ContactoDAO {
 
 	public abstract List<Persona> listaContactos();
-	
+
 	public abstract Persona vistaDetalleContacto(int id);
 
-	public abstract Persona altaContacto(Persona persona);
+	public abstract void altaContacto(Persona persona);
 
 	public abstract void modificarContacto(Persona persona);
 
