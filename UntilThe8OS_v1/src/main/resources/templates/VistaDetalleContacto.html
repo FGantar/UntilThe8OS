@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}">
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="/css/estiloVD.css"
+	th:href="@{/css/estiloVD.css}">
 </head>
 
 <body>
 
-    <div class="container">
+	<div class="container">
 
-        <div id="contact">
-            <ul>
-                <li>Nombre:<span th:text="${vistaDetalleContacto.nombre}"></span></li>
-                <li>Apellidos:<span th:text="${vistaDetalleContacto.apellido1}"></span></li>
-                <li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
-                <li>Fecha de nacimiento:<span th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
-                <li>Direccion:<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
-                        <span th:text="${vistaDetalleContacto.direccion}" />
-                        <span th:text="${vistaDetalleContacto.codPostal}" />
-                        <span th:text="${vistaDetalleContacto.localidad}" />
-                        <span th:text="${vistaDetalleContacto.provincia.provincia}" />
-                    </div>
-                </li>
+		<div id="contact">
+			<ul>
+				<li>Nombre:<span th:text="${vistaDetalleContacto.nombre}"></span></li>
+				<li>Apellidos:<span th:text="${vistaDetalleContacto.apellido1}"></span></li>
+				<li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
+				<li>Fecha de nacimiento:<span
+					th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
+				<li>Direccion:
+					<div
+						th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
+						<span th:text="${vistaDetalleContacto.direccion}" /> <span
+							th:text="${vistaDetalleContacto.codPostal}" /> <span
+							th:text="${vistaDetalleContacto.localidad}" /> <span
+							th:text="${vistaDetalleContacto.provincia.provincias}" />
+					</div>
+				</li>
 
-                <li>Telefono:<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
-                        <span th:text="${vistaDetalleContacto.telefono}" />
-                    </div>
-                </li>
-            </ul>
-            <br>
-            <a href="" th:href="@{/}"><button>Volver a la lista de contactos</button></a>
-        </div>
+				<li>Telefono:
+					<div
+						th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
+						<span th:text="${vistaDetalleContacto.telefono}" />
+					</div>
+				</li>
+			</ul>
+			<br> <a href="" th:href="@{/}"><button>Volver a la
+					lista de contactos</button></a>
+		</div>
 
 
 
-    </div>
+	</div>
 
 </body>
 

@@ -44,8 +44,10 @@ public class ContactoDAOImpl implements ContactoDAO {
 
 	@Transactional
 	@Override
-	public void altaContacto(Persona persona) {
+	public Persona altaContacto(Persona persona) {
 		entityManager.merge(persona);
+
+		return persona;
 	}
 
 	@Override

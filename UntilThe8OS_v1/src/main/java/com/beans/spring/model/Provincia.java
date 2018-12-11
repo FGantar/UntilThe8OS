@@ -2,7 +2,10 @@ package com.beans.spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,30 +16,34 @@ import javax.persistence.Table;
  * @version 05/12/2018
  *
  */
+/**
+ * CLASE PROVINCIA Contiene un id y el nombre de la provincia.
+ * 
+ * @author Cristian G. Fortes
+ * @version 05/12/2018
+ *
+ */
+
 @Entity
 @Table(name = "PROVINCIA")
 public class Provincia {
 
-	@Id
-	@Column(name = "IDPROVINCIA")
 	private int idprovincia;
-
-	@Column(name = "PROVINCIA")
-	private String provincia;
-
-	@OneToOne(mappedBy = "provincia")
-	private Direccion direccion;
+	private String provincias;
+	private Direccion direccions;
 
 	public Provincia() {
 		super();
 	}
 
-	public Provincia(int idprovincia, String provincia) {
+	public Provincia(String provincias) {
 		super();
-		this.idprovincia = idprovincia;
-		this.provincia = provincia;
+		this.provincias = provincias;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "IDPROVINCIA")
 	public int getIdprovincia() {
 		return idprovincia;
 	}
@@ -45,12 +52,23 @@ public class Provincia {
 		this.idprovincia = idprovincia;
 	}
 
-	public String getProvincia() {
-		return provincia;
+	@Column(name = "PROVINCIA")
+	public String getProvincias() {
+		return provincias;
 	}
 
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
+	public void setProvincias(String provincias) {
+		this.provincias = provincias;
+	}
+
+	@OneToOne()
+	@JoinColumn(name = "IDPROVINCIA", referencedColumnName = "IDPROVINCIA", insertable = false, updatable = false)
+	public Direccion getDireccions() {
+		return direccions;
+	}
+
+	public void setDireccions(Direccion direccions) {
+		this.direccions = direccions;
 	}
 
 	@Override
@@ -58,43 +76,12 @@ public class Provincia {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Provincia [idprovincia=");
 		builder.append(idprovincia);
-		builder.append(", provincia=");
-		builder.append(provincia);
+		builder.append(", provincias=");
+		builder.append(provincias);
+		builder.append(", direccions=");
+		builder.append(direccions);
+		builder.append("]");
 		return builder.toString();
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + idprovincia;
-		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Provincia other = (Provincia) obj;
-		if (direccion == null) {
-			if (other.direccion != null)
-				return false;
-		} else if (!direccion.equals(other.direccion))
-			return false;
-		if (idprovincia != other.idprovincia)
-			return false;
-		if (provincia == null) {
-			if (other.provincia != null)
-				return false;
-		} else if (!provincia.equals(other.provincia))
-			return false;
-		return true;
 	}
 
 }

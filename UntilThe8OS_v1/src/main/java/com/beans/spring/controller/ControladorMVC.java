@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.beans.spring.model.Direccion;
 import com.beans.spring.model.Persona;
+import com.beans.spring.model.Provincia;
+import com.beans.spring.model.Telefono;
 import com.beans.spring.services.ContactoServicio;
 
 /**
@@ -41,6 +44,8 @@ public class ControladorMVC {
 	public ModelAndView newUser(@ModelAttribute Persona persona) {
 		ModelAndView model = new ModelAndView("AltaContacto");
 		model.addObject("Persona", new Persona());
+		model.addObject("Direccion", new Direccion());
+		model.addObject("Telefono", new Telefono());
 		return model;
 	}
 
@@ -53,9 +58,16 @@ public class ControladorMVC {
 	}
 
 	@RequestMapping("/alta")
-	public ModelAndView altaContacto(@ModelAttribute Persona persona) {
+	public ModelAndView altaContacto(@ModelAttribute Persona persona, @ModelAttribute Telefono telefono,
+			@ModelAttribute Direccion direccion) {
 		// ModelAndView model = new ModelAndView("AltaContacto");
 		// model.addObject("contacto", new Persona());
+		Provincia p = new Provincia();
+		p.setIdprovincia((int) (Math.random() * 52) + 1);
+		direccion.setProvincia(p);
+		persona.getTelefonos().add(telefono);
+		persona.getDirecciones().add(direccion);
+		System.out.println(persona);
 		contactoServicio.altaContacto(persona);
 		return new ModelAndView("redirect:/");
 	}

@@ -12,55 +12,57 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.beans.spring.controller.ControladorMVC;
 import com.beans.spring.dao.ContactoDAO;
 import com.beans.spring.model.Persona;
 
 @RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class UntilThe8OsV1ApplicationTests {
-
-	@Autowired
-	private TestRestTemplate restTemplate;
-
-	@Autowired
-	private ModelAndView model;
-
+	
 	@Test
 	public void contextLoads() {
 	}
-
-	@Test
-	public void controller() throws Exception {
-
-		assertThat(1).isSameAs(model)
-				.isEqualTo(this.restTemplate.getForObject("http://localhost:8080/", ModelAndView.class));
-	}
-
+	
 	@Autowired
-	private ContactoDAO contactoDao;
+	ControladorMVC controlador;
+	 
+	 @Test
+	 public void controller() throws Exception {
+	       
+		 assertNotNull(controlador);
+	     
+	 }
+	 
+	 @Autowired   
+	 private ContactoDAO contactoDao;
+	 
+	   
+	 private Persona persona = new Persona("aaaa","bbbbb","ggggg","aadad");
+	 
+	 @Test
+	 public void alta() throws Exception {
+	  
+		 assertNotNull(contactoDao.altaContacto(persona));
+		 
+		}
+		
+	 
+	 @Test
+	 public void borrar() throws Exception {
+		 int i;
+		 for( i= 0;contactoDao.listaContactos().size()>i;i++) {
+			 
+		 }
+			
+	     i--;
+	     persona = contactoDao.listaContactos().get(i);
+		 contactoDao.borrarContacto(persona.getId());	   
 
-	@Autowired
-	private Persona persona;
-
-	@Test
-	public void alta() throws Exception {
-
-		contactoDao.altaContacto(persona);
-
-		contactoDao.vistaDetalleContacto(persona.getId());
-
-		assertNotNull(persona);
-	}
-
-	@Test
-	public void borrar() throws Exception {
-
-		contactoDao.borrarContacto(persona.getId());
-
-		contactoDao.vistaDetalleContacto(persona.getId());
-
-		assertNull(persona);
-
-	}
+		assertNull(contactoDao.vistaDetalleContacto(persona.getId()));
+		 
+	 }
 
 }
+

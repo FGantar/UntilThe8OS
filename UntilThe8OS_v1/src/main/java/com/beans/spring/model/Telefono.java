@@ -1,8 +1,10 @@
 package com.beans.spring.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,19 +23,24 @@ import javax.persistence.Table;
 public class Telefono {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDTELEFONO")
 	private int idtelefono;
 
 	@Column(name = "TELEFONO")
 	private String telefono;
 
-	@ManyToOne()
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA")
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", insertable = false, updatable = false)
 	private Persona persona;
 
 	public Telefono() {
 		super();
+	}
+
+	public Telefono(String telefono) {
+		super();
+		this.telefono = telefono;
 	}
 
 	public Telefono(int idtelefono, String telefono) {
