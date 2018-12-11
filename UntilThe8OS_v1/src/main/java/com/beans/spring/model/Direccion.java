@@ -48,26 +48,6 @@ public class Direccion {
 		super();
 	}
 
-	
-	public Direccion(String direccion, int codPostal, String localidad) {
-		super();
-		this.direccion = direccion;
-		this.codPostal = codPostal;
-		this.localidad = localidad;
-	}
-
-
-
-	public Direccion(String direccion, int codPostal, String localidad, Provincia provincia) {
-		super();
-		this.direccion = direccion;
-		this.codPostal = codPostal;
-		this.localidad = localidad;
-		this.provincia = provincia;
-	}
-
-
-
 	public int getIdDireccion() {
 		return idDireccion;
 	}

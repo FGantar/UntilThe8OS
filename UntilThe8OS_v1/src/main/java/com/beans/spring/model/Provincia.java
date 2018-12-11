@@ -2,8 +2,6 @@ package com.beans.spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -20,7 +18,6 @@ import javax.persistence.Table;
 public class Provincia {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "IDPROVINCIA")
 	private int idprovincia;
 
@@ -34,12 +31,6 @@ public class Provincia {
 		super();
 	}
 
-	public Provincia(String provincia) {
-		
-		this.provincia = provincia;
-		
-	}
-	
 	public Provincia(int idprovincia, String provincia) {
 		super();
 		this.idprovincia = idprovincia;
