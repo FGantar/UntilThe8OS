@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="resources/static/css/estiloVD.css">
+    <link th:href="@{resources/static/css/estiloVD.css}" href="../resources/static/css/estiloVD.css" rel="stylesheet" type="text/css" >
 </head>
 <body>
   
 <div class="container">  
-  <form action="#" th:action="@{/alta}" th:object="${persona}" method="post">
+  <form action="#" th:action="@{/alta}" method="post">
     <h3>Nuevo contacto</h3>
     <h4>rellene los siguientes campos</h4>
     <fieldset>
@@ -24,10 +24,19 @@
       <input placeholder="dni" th:value="${Persona.dni}" th:name="dni" th:id="dni" type="text" tabindex="1">
     </fieldset>
     <fieldset>
-      <input placeholder="telefono" th:value="${Persona.telefonos}" th:name="telefonos" th:id="telefonos" type="text" tabindex="1">
+      <input placeholder="telefono" th:value="${Telefono.telefono}" th:name="telefono" th:id="telefono" type="text" tabindex="1">
     </fieldset>
-        <fieldset>
-      <input placeholder="direccion" th:value="${Persona.direcciones.direccion}" th:name="direcciones" th:id="direcciones" type="text" tabindex="1">
+              <fieldset>
+      <input placeholder="direccion" th:value="${Direccion.direccion}" th:name="direccion" th:id="direccion" type="text" tabindex="1">
+       </fieldset>
+            <fieldset>
+      <input placeholder="condigo postal" th:value="${Direccion.codPostal}" th:name="codPostal" th:id="codPostal" type="text" tabindex="1">
+    </fieldset>
+            <fieldset>
+      <input placeholder="Localidad" th:value="${Direccion.localidad}" th:name="localidad" th:id="localidad" type="text" tabindex="1">
+    </fieldset>
+             <fieldset>
+      <input placeholder="Provincia" th:value="${Direccion.provincia}" th:name="provincia" th:id="provincia" type="text" tabindex="1">
     </fieldset>
       
         <fieldset> 

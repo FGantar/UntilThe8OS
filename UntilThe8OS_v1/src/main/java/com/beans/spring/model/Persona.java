@@ -42,7 +42,7 @@ public class Persona {
 
 	@Column(name = "APELLIDO2")
 	private String apellido2;
-
+	
 	@Column(name = "DNI")
 	private String dni;
 
@@ -59,8 +59,31 @@ public class Persona {
 
 	public Persona() {
 		super();
+		direcciones = new ArrayList<>();
+		telefonos = new ArrayList<>();
 	}
 
+
+	public Persona(String nombre, String apellido1, String apellido2, String dni) {
+		super();
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+	}
+	
+	
+
+	public Persona(int idPersona, String nombre, String apellido1, String apellido2, String dni) {
+		super();
+		this.idPersona = idPersona;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+	}
+
+	
 	public int getId() {
 		return idPersona;
 	}
@@ -113,16 +136,10 @@ public class Persona {
 		return telefonos;
 	}
 
-	public void setTelefonos(String telefonos) {
+	public void setTelefonos(List<Telefono> telefonos) {
 		
-		System.out.println(telefonos);
-		Telefono t= new Telefono();
-		t.setTelefono(telefonos);
-		List<Telefono> telefonos2 = new ArrayList<>();
-		telefonos2.add(t);
-		this.telefonos=telefonos2;
-		System.out.println(telefonos);
-		
+		this.telefonos=telefonos;
+			
 	}
 
 	public List<Direccion> getDirecciones() {
@@ -133,6 +150,8 @@ public class Persona {
 		this.direcciones = direcciones;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

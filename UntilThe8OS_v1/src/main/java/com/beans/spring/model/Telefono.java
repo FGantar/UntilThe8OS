@@ -37,6 +37,11 @@ public class Telefono {
 		super();
 	}
 
+	public Telefono(String telefono) {
+		super();
+		this.telefono = telefono;
+	}
+
 	public Telefono(int idtelefono, String telefono) {
 		super();
 		this.idtelefono = idtelefono;

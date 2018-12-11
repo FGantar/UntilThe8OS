@@ -59,7 +59,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 		nuevaPersona.setDni(persona.getDni());
 		nuevaPersona.setDirecciones(persona.getDirecciones());
 		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento().toString());
-		nuevaPersona.setTelefonos(persona.getTelefonos().toString());
+		nuevaPersona.setTelefonos(persona.getTelefonos());
 		
 		entityManager.flush();
 		

@@ -4,6 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,56 +15,56 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.beans.spring.controller.ControladorMVC;
 import com.beans.spring.dao.ContactoDAO;
 import com.beans.spring.model.Persona;
 
 @RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class UntilThe8OsV1ApplicationTests {
-
-	@Autowired
-    private TestRestTemplate restTemplate;
-	
-	@Autowired
-	private ModelAndView model;
 	
 	@Test
 	public void contextLoads() {
 	}
 	
+	@Autowired
+	ControladorMVC controlador;
+	 
 	 @Test
 	 public void controller() throws Exception {
 	       
-	 
-	        assertThat(1).isSameAs(model).isEqualTo(this.restTemplate.getForObject("http://localhost:8080/",ModelAndView.class));
+		 assertNotNull(controlador);
+	     
 	 }
 	 
-	/* @Autowired   
+	 @Autowired   
 	 private ContactoDAO contactoDao;
 	 
-	 @Autowired   
-	 private Persona persona;
+	   
+	 private Persona persona = new Persona("aaaa","bbbbb","ggggg","aadad");
 	 
 	 @Test
 	 public void alta() throws Exception {
-	       
-		 contactoDao.altaContacto(persona);	   
+	  
+		 assertNotNull(contactoDao.altaContacto(persona));
 		 
-		 contactoDao.vistaDetalleContacto(persona.getId());
-		 
-		 assertNotNull(persona);
 		}
-		 */
+		
 	 
-/*	 @Test
+	 @Test
 	 public void borrar() throws Exception {
-	       
+		 int i;
+		 for( i= 0;contactoDao.listaContactos().size()>i;i++) {
+			 
+		 }
+			
+	     i--;
+	     persona = contactoDao.listaContactos().get(i);
 		 contactoDao.borrarContacto(persona.getId());	   
-		 
-		 contactoDao.vistaDetalleContacto(persona.getId());
-		 
-		 assertNull(persona);
+
+		assertNull(contactoDao.vistaDetalleContacto(persona.getId()));
 		 
 	 }
-*/
+
 }

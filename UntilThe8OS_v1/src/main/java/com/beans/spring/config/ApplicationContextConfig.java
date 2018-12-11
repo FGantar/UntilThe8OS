@@ -56,7 +56,7 @@ public class ApplicationContextConfig {
 	}
 
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("/resources/static/css/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 
 	}
 
