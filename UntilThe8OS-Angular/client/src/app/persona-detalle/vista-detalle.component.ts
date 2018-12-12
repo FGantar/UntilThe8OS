@@ -6,7 +6,7 @@ import { PersonaEditService } from '../shared/persona-edit/persona-edit.service'
 @Component({
   selector: 'app-vista-detalle',
   templateUrl: './vista-detalle.component.html',
-  styleUrls: ['./vista-detalle.component.css']
+  styleUrls: []
 })
 export class VistaDetalleComponent implements OnInit {
 

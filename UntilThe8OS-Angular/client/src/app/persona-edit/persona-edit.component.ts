@@ -7,7 +7,7 @@ import { Persona } from '../model/persona.model';
 @Component({
   selector: 'app-persona-edit',
   templateUrl: './persona-edit.component.html',
-  styleUrls: ['./persona-edit.component.css']
+  styleUrls: []
 })
 export class PersonaEditComponent implements OnInit {
 

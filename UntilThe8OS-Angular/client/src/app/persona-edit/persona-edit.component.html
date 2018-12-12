@@ -1,3 +1,44 @@
-<p>
-  persona-edit works!
-</p>
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Modificar contacto</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="hidden">
+      <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" formControlName="nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre" readonly="true">
+    </div>
+
+    <div class="form-group">
+      <label for="apellido1">Primer apellido:</label>
+      <input formControlName="apellido1" placeholder="Primer apellido" name="apellido1" class="form-control" id="apellido1">
+    </div>
+
+    <div class="form-group">
+      <label for="apellido2">Segundo apellido:</label>
+      <input formControlName="apellido2" placeholder="Segundo apellido" name="apellido2" class="form-control" id="apellido2">
+    </div>
+
+    <div class="form-group">
+      <label for="dni">DNI:</label>
+      <input formControlName="dni" placeholder="DNI" name="dni" class="form-control" id="dni">
+    </div>
+
+    <div class="form-group">
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" class="form-control" id="fechaNacimiento">
+    </div>
+
+    <div class="form-group">
+      <label for="telefonos">Telefono:</label>
+      <input type="number" formControlName="telefonos" placeholder="Telefono" name="telefonos" class="form-control" id="telefonos">
+    </div>
+
+    <div class="form-group">
+      <label for="direcciones">Direccion:</label>
+      <input formControlName="direcciones" placeholder="Direccion" name="direcciones" class="form-control" id="direcciones">
+    </div>
+
+    <button class="btn btn-success">Modificar</button>
+  </form>
+</div>
