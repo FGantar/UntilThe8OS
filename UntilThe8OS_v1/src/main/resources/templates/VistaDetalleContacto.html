@@ -37,11 +37,12 @@
 					</div>
 				</li>
 			</ul>
-			<br> <a href="" th:href="@{/}"><button>Volver a la
-					lista de contactos</button></a>
+			<br>
+			<form th:action="@{/}">
+				<input name="/" type="submit" id="contact-submit"
+					value="Volver a la lista de contactos" />
+			</form>
 		</div>
-
-
 
 	</div>
 

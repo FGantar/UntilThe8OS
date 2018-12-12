@@ -72,14 +72,24 @@ public class ControladorMVC {
 		return new ModelAndView("redirect:/");
 	}
 
-	@PutMapping("/modificar")
+	@GetMapping("/modificar")
 	public ModelAndView modificarContacto(@RequestParam("idPersona") int id) {
 		Persona persona = contactoServicio.vistaDetalleContacto(id);
 		ModelAndView model = new ModelAndView("AltaContacto");
-		model.addObject("contacto", persona);
+		model.addObject("Persona", persona);
 		return model;
 	}
 
+	@RequestMapping("/modificado")
+	public ModelAndView modificarContacto(@ModelAttribute Persona persona, @ModelAttribute Telefono telefono,
+			@ModelAttribute Direccion direccion, @ModelAttribute Provincia provincia) {
+		System.out.println(provincia);
+		persona.getTelefonos().add(telefono);
+		persona.getDirecciones().add(direccion);
+		contactoServicio.modificarContacto(persona);
+		return new ModelAndView("redirect:/");
+	}
+	
 	@GetMapping("/borrar")
 	public ModelAndView borrarContacto(@RequestParam("idPersona") int id) {
 		contactoServicio.borrarContacto(id);

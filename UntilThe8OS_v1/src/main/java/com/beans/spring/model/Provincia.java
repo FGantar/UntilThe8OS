@@ -1,5 +1,6 @@
 package com.beans.spring.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -78,8 +79,6 @@ public class Provincia {
 		builder.append(idprovincia);
 		builder.append(", provincias=");
 		builder.append(provincias);
-		builder.append(", direccions=");
-		builder.append(direccions);
 		builder.append("]");
 		return builder.toString();
 	}

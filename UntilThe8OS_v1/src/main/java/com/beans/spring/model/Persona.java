@@ -47,7 +47,7 @@ public class Persona {
 	@Column(name = "FECHANACIMIENTO")
 	private Date fechaNacimiento;
 
-	@OneToMany(cascade = { CascadeType.ALL }, orphanRemoval=true)
+	@OneToMany(cascade = { CascadeType.ALL },orphanRemoval=true)
 	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", nullable=false)
 	private List<Telefono> telefonos;
 
@@ -82,11 +82,11 @@ public class Persona {
 	}
 
 	
-	public int getId() {
+	public int getIdPersona() {
 		return idPersona;
 	}
 
-	public void setId(int id) {
+	public void setIdPersona(int id) {
 		this.idPersona = id;
 	}
 
