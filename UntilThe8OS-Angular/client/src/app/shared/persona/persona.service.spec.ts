@@ -1,25 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import { PersonaComponent } from './persona.service';
+import { PersonaService } from './persona.service';
 
-describe('PersonaComponent', () => {
-  let component: PersonaComponent;
-  let fixture: ComponentFixture<PersonaComponent>;
+describe('PersonaService', () => {
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonaComponent ]
+      providers: [PersonaService]
     })
-    .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PersonaComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create', inject([PersonaService], (service: PersonaService) => {
+    expect(service).toBeTruthy();
+  }));
 });
