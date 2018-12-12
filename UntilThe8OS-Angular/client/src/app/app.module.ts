@@ -10,6 +10,7 @@ import { PersonaListComponent } from './persona-list/persona-list.component';
 import { SharedComponent } from './shared/shared.component';
 import { PersonaComponent } from './shared/persona/persona.service';
 import { VistaDetalleComponent } from './persona-detalle/vista-detalle.component';
+import { PersonaAddComponent } from './persona-add/persona-add.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,8 @@ import { VistaDetalleComponent } from './persona-detalle/vista-detalle.component
     AdiosComponent,
     PersonaListComponent,
     SharedComponent,
-    PersonaComponent,
     VistaDetalleComponent
+    PersonaAddComponent
   ],
   imports: [
     BrowserModule,
