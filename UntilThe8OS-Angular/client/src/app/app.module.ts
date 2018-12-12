@@ -9,6 +9,7 @@ import { AdiosComponent } from './adios/adios.component';
 import { PersonaListComponent } from './persona-list/persona-list.component';
 import { SharedComponent } from './shared/shared.component';
 import { PersonaComponent } from './shared/persona/persona.service';
+import { PersonaAddComponent } from './persona-add/persona-add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PersonaComponent } from './shared/persona/persona.service';
     AdiosComponent,
     PersonaListComponent,
     SharedComponent,
-    PersonaComponent
+    PersonaComponent,
+    PersonaAddComponent
   ],
   imports: [
     BrowserModule,

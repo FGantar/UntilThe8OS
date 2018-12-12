@@ -14,7 +14,7 @@ export class PersonaService {
   // LISTADO para el filtro
   /*
   getAll(): Observable<any> {
-    return this.http.get(this.API + '/good-beers');
+    return this.http.get(this.API + '/contactos_VIP');
   }
   */
 }
