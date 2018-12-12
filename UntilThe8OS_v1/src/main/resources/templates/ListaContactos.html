@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}" />
-    <title>Lista de Contactos</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}" />
+	<title>Lista de Contactos</title>
 </head>
 
 <body>
-  <div class="backGeneral">
-   <div class="container">
-   
-   
-  
-    <div id="contact">
-     <h1>Lista de Contactos</h1>
-  
-        <table>
-            <tr class="principal">
-                <th class="contact">Contacto</th>
-                <th class="options">Opciones</th>
-            </tr>
-            <tr th:each="listaContactos : ${listaContactos}">
-                <td th:text="${listaContactos.nombre}"></td>
-                <td>
-                <div class="prueba">
-                    <a href="detalle?idPersona=${listaContactos.idPersona}" th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
-
-                    <a href="new?idPersona=${listaContactos.idPersona}" th:href="@{/modificar(idPersona=${listaContactos.idPersona})}">
-                        <button class="derecha">Editar</button></a>
-                    <a href="borrar?idPersona=${listaContactos.idPersona}" th:href="@{/borrar(idPersona=${listaContactos.idPersona})}">
-                        <button class="derecha">Borrar</button></a>
-                </div>
-                </td>
-               
-            </tr>
-                        
-        </table>
-         <a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
-        </div>
-  
-
-</div>
-</div>
+	<div class="backGeneral">
+		<div class="container">
+			<div id="contact">
+				<h1>Lista de Contactos</h1>
+				<table>
+					<tr class="principal">
+						<th class="contact">Contacto</th>
+						<th class="options">Opciones</th>
+					</tr>
+					<tr th:each="listaContactos : ${listaContactos}">
+						<td th:text="${listaContactos.nombre}"></td>
+						<td>
+							<div class="prueba">
+								<a href="detalle?idPersona=${listaContactos.idPersona}" th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
+								<a href="new?idPersona=${listaContactos.idPersona}" th:href="@{/modificar(idPersona=${listaContactos.idPersona})}"><button class="derecha">Editar</button></a>
+								<a href="borrar?idPersona=${listaContactos.idPersona}" th:href="@{/borrar(idPersona=${listaContactos.idPersona})}"><button class="derecha">Borrar</button></a>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div align="center" >
+					<a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
+					<a href="new" th:href="@{/logout}"><button>Logout</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

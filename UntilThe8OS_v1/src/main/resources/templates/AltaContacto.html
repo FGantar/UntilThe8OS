@@ -1,100 +1,51 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-<link th:href="@{/css/estiloVD.css}" href="/css/estiloVD.css"
-	rel="stylesheet" type="text/css">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link th:href="@{/css/estiloVD.css}" href="/css/estiloVD.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-  
-<div class="container">  
-	<div th:if="${Persona.idPersona == 0}">
-  <form id="contact" action="#" th:action="@{/alta}" method="post">
-    <h3>Nuevo contacto</h3>
-    <h4>rellene los siguientes campos</h4>
-    <fieldset>
-      <input placeholder="Nombre" type="text" th:value="${Persona.nombre}" th:name="nombre" th:id="nombre" tabindex="1" required autofocus>
-    </fieldset>
-     <fieldset>
-      <input placeholder="apellido 1" th:value="${Persona.apellido1}" th:name="apellido1" th:id="apellido1" type="text" tabindex="1">
-    </fieldset>
-        <fieldset>
-      <input placeholder="apellido 2" th:value="${Persona.apellido2}" th:name="apellido2" th:id="apellido2" type="text" tabindex="1">
-    </fieldset>
-        <fieldset>
-      <input placeholder="dni" th:value="${Persona.dni}" th:name="dni" th:id="dni" type="text" tabindex="1">
-    </fieldset>
-    <fieldset>
-      <input placeholder="telefono" th:value="${Telefono.telefono}" th:name="telefono" th:id="telefono" type="text" tabindex="1">
-    </fieldset>
-              <fieldset>
-      <input placeholder="direccion" th:value="${Direccion.direccion}" th:name="direccion" th:id="direccion" type="text" tabindex="1">
-       </fieldset>
-            <fieldset>
-      <input placeholder="condigo postal"  th:name="codPostal" th:id="codPostal" type="text" tabindex="1">
-    </fieldset>
-            <fieldset>
-      <input placeholder="Localidad" th:value="${Direccion.localidad}" th:name="localidad" th:id="localidad" type="text" tabindex="1">
-    </fieldset>
-        <fieldset> 
-      <input placeholder="Fecha de nacimiento" th:value="${Persona.fechaNacimiento
-      }" th:name="fechaNacimiento" th:id="fechaNacimiento" type="date" tabindex="1">
-    </fieldset>
-    <fieldset>
-     <input type="submit" id="contact-submit" value="Añadir nuevo contacto" />
-    </fieldset>
-    <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
-  </form>
-</div>
-<div th:unless="${Persona.idPersona == 0}">
-  <form id="contact" action="#" th:action="@{/modificado}" method="post">
-    <h3>Nuevo contacto</h3>
-    <h4>rellene los siguientes campos</h4>
-    <input type="hidden" th:field="${Persona.idPersona}"/>
-<input type="hidden" th:name="idprovincia" th:id="idprovincia"/>
-    <fieldset>
-      <input placeholder="Nombre" type="text" th:value="${Persona.nombre}" th:name="nombre" th:id="nombre" tabindex="1" required autofocus>
-    </fieldset>
-     <fieldset>
-      <input placeholder="apellido 1" th:value="${Persona.apellido1}" th:name="apellido1" th:id="apellido1" type="text" tabindex="1">
-    </fieldset>
-        <fieldset>
-      <input placeholder="apellido 2" th:value="${Persona.apellido2}" th:name="apellido2" th:id="apellido2" type="text" tabindex="1">
-    </fieldset>
-        <fieldset>
-      <input placeholder="dni" th:value="${Persona.dni}" th:name="dni" th:id="dni" type="text" tabindex="1">
-    </fieldset>
-    	<div th:each="Persona : ${Persona.direcciones}">
-    	
-						         <fieldset>
-      <input placeholder="direccion" th:value="${Persona.direccion}" th:name="direccion" th:id="direccion" type="text" tabindex="1">
-       </fieldset>
-            <fieldset>
-      <input placeholder="condigo postal" th:value="${Persona.codPostal}" th:name="codPostal" th:id="codPostal" type="text" tabindex="1">
-    </fieldset>
-            <fieldset>
-      <input placeholder="Localidad" th:value="${Persona.localidad}" th:name="localidad" th:id="localidad" type="text" tabindex="1">
-    </fieldset>
+	<div class="container">
+		<div th:if="${Persona.idPersona == 0}">
+			<form id="contact" action="#" th:action="@{/alta}" method="post">
+				<h3>Nuevo contacto</h3>
+				<h4>Rellene los siguientes campos</h4>
+				<fieldset>
+					<input placeholder="Nombre" type="text" th:value="${Persona.nombre}" th:name="nombre" th:id="nombre" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="apellido 1" th:value="${Persona.apellido1}" th:name="apellido1" th:id="apellido1" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="apellido 2" th:value="${Persona.apellido2}" th:name="apellido2" th:id="apellido2" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="dni" th:value="${Persona.dni}" th:name="dni" th:id="dni" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="telefono" th:value="${Telefono.telefono}" th:name="telefono" th:id="telefono" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="direccion" th:value="${Direccion.direccion}" th:name="direccion" th:id="direccion" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="condigo postal" th:name="codPostal" th:id="codPostal" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="Localidad" th:value="${Direccion.localidad}" th:name="localidad" th:id="localidad" type="text" tabindex="1" required autofocus>
+				</fieldset>
+				<fieldset>
+					<input placeholder="Fecha de nacimiento" th:value="${Persona.fechaNacimiento}" th:name="fechaNacimiento" th:id="fechaNacimiento" type="date" tabindex="1">
+				</fieldset>
+				<fieldset>
+					<input type="submit" id="contact-submit" value="Añadir nuevo contacto" />
+				</fieldset>
+			</form>
+		</div>
 	</div>
-	<div th:each="Persona : ${Persona.telefonos}">
-						   <fieldset>
-      <input placeholder="telefono" th:value="${Persona.telefono}" th:name="telefono" th:id="telefono" type="text" tabindex="1">
-    </fieldset>
-	
-					</div>
- 
-     
-        <fieldset> 
-      <input placeholder="Fecha de nacimiento" th:value="${Persona.fechaNacimiento
-      }" th:name="fechaNacimiento" th:id="fechaNacimiento" type="date" tabindex="1">
-    </fieldset>
-    <fieldset>
-     <input type="submit" id="contact-submit" value="modificar contacto" />
-    </fieldset>
-    <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
-  </form>
-</div>
-  </div>
 </body>
+
 </html>

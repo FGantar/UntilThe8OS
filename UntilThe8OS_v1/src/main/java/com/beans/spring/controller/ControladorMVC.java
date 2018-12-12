@@ -36,6 +36,12 @@ public class ControladorMVC {
 		model.addObject("listaContactos", listaContactos);
 		return model;
 	}
+	  @RequestMapping(value = "/login")
+	    public ModelAndView login(){
+	        ModelAndView modelAndView = new ModelAndView();
+	        modelAndView.setViewName("Seguridad");
+	        return modelAndView;
+	    }
 
 	@RequestMapping(value = "/new")
 	public ModelAndView newUser(@ModelAttribute Persona persona) {
