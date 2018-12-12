@@ -4,20 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
-import { HolaComponent } from './hola/hola.component';
-import { AdiosComponent } from './adios/adios.component';
 import { PersonaListComponent } from './persona-list/persona-list.component';
 import { SharedComponent } from './shared/shared.component';
-import { PersonaComponent } from './shared/persona/persona.service';
+
 import { VistaDetalleComponent } from './persona-detalle/vista-detalle.component';
 import { PersonaAddComponent } from './persona-add/persona-add.component';
+import { PersonaService } from './shared/persona/persona.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PersonaService,
     PersonaEditComponent,
-    HolaComponent,
-    AdiosComponent,
     PersonaListComponent,
     SharedComponent,
     VistaDetalleComponent,

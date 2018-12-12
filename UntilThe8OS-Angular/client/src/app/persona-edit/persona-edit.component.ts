@@ -39,7 +39,7 @@ export class PersonaEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.editService.updatePersona(this.editForm.value)
+    this.editService.save(this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {

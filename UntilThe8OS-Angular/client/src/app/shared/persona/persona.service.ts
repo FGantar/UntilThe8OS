@@ -11,10 +11,9 @@ export class PersonaService {
 
   constructor(private http: HttpClient) {}
 
-  // LISTADO para el filtro
-  /*
-  getAll(): Observable<any> {
+ 
+  listaContactos(): Observable<any> {
     return this.http.get(this.API + '/contactos_VIP');
   }
-  */
+  
 }
