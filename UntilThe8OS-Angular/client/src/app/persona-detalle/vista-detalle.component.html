@@ -1,0 +1,42 @@
+<div class="col-md-6">
+  <h2> Vista Detallada</h2>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+     <th>Ficha de {{persona.nombre}}</th>
+     
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Nombre: </td>
+      <td>{{persona.nombre}}</td>
+    </tr>
+    <tr>
+      <td>Apellidos: </td>
+      <td>{{persona.apellido1}} {{persona.apellido2}}</td>
+    </tr>
+    <tr>
+      <td>DNI: </td>
+      <td>{{persona.dni}}</td>
+    </tr>
+    <tr>
+      <td>Fecha de Nacimiento: </td>
+      <td>{{persona.fechaNacimiento}}</td>
+    </tr>
+    <tr>
+      <td>DNI: </td>
+      <td>{{persona.dni}}</td>
+    </tr>
+    <tr>
+      <td>Telefonos: </td>
+      <td *ngFor="let telefono of persona.telefonos">{{telefono.telefono}}</td>
+    </tr>
+    <tr>
+      <td>Direccion: </td>
+      <td *ngFor="let direccion of persona.direcciones">{{direccion.direccion}} {{direccion.codPostal}} {{direccion.provincia.provincia}}</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
