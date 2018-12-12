@@ -8,7 +8,7 @@ import { HolaComponent } from './hola/hola.component';
 import { AdiosComponent } from './adios/adios.component';
 import { PersonaListComponent } from './persona-list/persona-list.component';
 import { SharedComponent } from './shared/shared.component';
-import { PersonaComponent } from './shared/persona/persona.component';
+import { PersonaComponent } from './shared/persona/persona.service';
 
 @NgModule({
   declarations: [
