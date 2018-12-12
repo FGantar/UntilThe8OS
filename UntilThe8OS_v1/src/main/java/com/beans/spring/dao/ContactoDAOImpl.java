@@ -29,6 +29,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
 	public List<Persona> listaContactos() {
@@ -74,6 +75,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
 	public List<Persona> Filtrar(String tabla, String columna, String palabra) {
