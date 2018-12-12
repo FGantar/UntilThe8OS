@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class PersonaEditService implements OnInit {
+export class PersonaEditService {
   public API = '//localhost:8080';
   public PERSONA_API = this.API + '/contacto';
   constructor(private http: HttpClient) {
@@ -16,7 +16,7 @@ export class PersonaEditService implements OnInit {
   }
 
   save(persona: any): Observable<any> {
-    let result: Observable<Object>;
+    let result: Observable <Object>;
     if (persona['href']) {
       result = this.http.put(persona.href, persona);
     } else {
