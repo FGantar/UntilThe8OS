@@ -20,7 +20,7 @@ import { PersonaAddComponent } from './persona-add/persona-add.component';
     AdiosComponent,
     PersonaListComponent,
     SharedComponent,
-    VistaDetalleComponent
+    VistaDetalleComponent,
     PersonaAddComponent
   ],
   imports: [
