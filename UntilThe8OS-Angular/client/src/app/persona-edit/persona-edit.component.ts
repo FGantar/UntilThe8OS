@@ -16,8 +16,8 @@ export class PersonaEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private editService: PersonaEditService) { }
 
   ngOnInit() {
-    let userId = window.localStorage.getItem("editPersonaId");
-    if(!userId) {
+    let personaId = window.localStorage.getItem("editPersonaId");
+    if(!personaId) {
       alert("Invalid action.")
       this.router.navigate(['persona-list']);
       return;
@@ -32,7 +32,7 @@ export class PersonaEditComponent implements OnInit {
       telefonos: ['', Validators.required],
       direcciones: ['', Validators.required]
     });
-    this.editService.get(+idpersona)
+    this.editService.get(+personaId)
       .subscribe( data => {
         this.editForm.setValue(data.result);
       });
