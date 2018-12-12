@@ -50,10 +50,11 @@ public class ContactoDAOImpl implements ContactoDAO {
 		return persona;
 	}
 
+	@Transactional
 	@Override
 	public void modificarContacto(Persona persona) {
-		Persona nuevaPersona = vistaDetalleContacto(persona.getId());
-
+		Persona nuevaPersona = vistaDetalleContacto(persona.getIdPersona());
+		System.out.println(nuevaPersona);
 		nuevaPersona.setNombre(persona.getNombre());
 		nuevaPersona.setApellido1(persona.getApellido1());
 		nuevaPersona.setApellido2(persona.getApellido2());
@@ -61,8 +62,8 @@ public class ContactoDAOImpl implements ContactoDAO {
 		nuevaPersona.setDirecciones(persona.getDirecciones());
 		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento().toString());
 		nuevaPersona.setTelefonos(persona.getTelefonos());
-
-		entityManager.flush();
+		System.out.println(persona);
+		entityManager.merge(nuevaPersona);
 
 	}
 
@@ -72,5 +73,13 @@ public class ContactoDAOImpl implements ContactoDAO {
 		entityManager.remove(vistaDetalleContacto(id));
 
 	}
+
+	@Transactional
+	@Override
+	public List<Persona> Filtrar(String tabla, String columna, String palabra) {
+		String hql = "FROM "+ tabla + " x where x."+columna+ " like "+palabra;
+		return (List<Persona>) entityManager.createQuery(hql).getResultList();
+	}
+
 
 }

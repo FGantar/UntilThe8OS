@@ -50,4 +50,9 @@ public class ContactoServicioImpl implements ContactoServicio {
 
 	}
 
+	@Override
+	public List<Persona> Filtrar(String tabla, String columna,  String palabra) {
+		return contactoDAO.Filtrar(tabla,columna,palabra);
+	}
+
 }

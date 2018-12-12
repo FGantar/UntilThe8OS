@@ -9,10 +9,12 @@
 <body>
   <div class="backGeneral">
    <div class="container">
-    <h1>Lista de Contactos</h1>
-    <a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
-   <center>
+   
+   
+  
     <div id="contact">
+     <h1>Lista de Contactos</h1>
+  
         <table>
             <tr class="principal">
                 <th class="contact">Contacto</th>
@@ -21,16 +23,22 @@
             <tr th:each="listaContactos : ${listaContactos}">
                 <td th:text="${listaContactos.nombre}"></td>
                 <td>
+                <div class="prueba">
                     <a href="detalle?idPersona=${listaContactos.idPersona}" th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
-                    <a href="new?idPersona=${listaContactos.idPersona}" th:href="@{/new(idPersona=${listaContactos.idPersona})}">
-                        <button>Editar</button></a>
+
+                    <a href="new?idPersona=${listaContactos.idPersona}" th:href="@{/modificar(idPersona=${listaContactos.idPersona})}">
+                        <button class="derecha">Editar</button></a>
                     <a href="borrar?idPersona=${listaContactos.idPersona}" th:href="@{/borrar(idPersona=${listaContactos.idPersona})}">
-                        <button>Borrar</button></a>
+                        <button class="derecha">Borrar</button></a>
+                </div>
                 </td>
+               
             </tr>
+                        
         </table>
+         <a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
         </div>
-   </center>
+  
 
 </div>
 </div>

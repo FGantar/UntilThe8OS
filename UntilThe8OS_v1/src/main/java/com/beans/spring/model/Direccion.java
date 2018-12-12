@@ -107,8 +107,6 @@ public class Direccion {
 		builder.append(localidad);
 		builder.append(", provincia=");
 		builder.append(provincia);
-		builder.append(", persona=");
-		builder.append(persona);
 		builder.append("]");
 		return builder.toString();
 	}

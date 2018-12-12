@@ -58,9 +58,9 @@ public class UntilThe8OsV1ApplicationTests {
 			
 	     i--;
 	     persona = contactoDao.listaContactos().get(i);
-		 contactoDao.borrarContacto(persona.getId());	   
+		 contactoDao.borrarContacto(persona.getIdPersona());	   
 
-		assertNull(contactoDao.vistaDetalleContacto(persona.getId()));
+		assertNull(contactoDao.vistaDetalleContacto(persona.getIdPersona()));
 		 
 	 }
 
