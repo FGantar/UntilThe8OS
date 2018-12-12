@@ -11,7 +11,7 @@ export class PersonaEditService {
 
   }
 
-  get(id: number) {
+  get(id: string) {
     return this.http.get(this.PERSONA_API + '/' + id);
   }
 

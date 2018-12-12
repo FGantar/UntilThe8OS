@@ -29,7 +29,7 @@ export class PersonaAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.addService.altaContacto(this.addForm.value)
+    this.addService.save(this.addForm.value)
       .subscribe( data => {
         this.router.navigate(['persona-list']);
       });
