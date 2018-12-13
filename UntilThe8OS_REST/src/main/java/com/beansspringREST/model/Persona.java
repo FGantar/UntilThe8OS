@@ -1,6 +1,5 @@
 package com.beansspringREST.model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -12,9 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-
-import java.util.List;
 import java.util.Set;
 
 

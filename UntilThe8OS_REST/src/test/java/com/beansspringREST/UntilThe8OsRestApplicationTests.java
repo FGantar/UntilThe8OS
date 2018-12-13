@@ -2,12 +2,9 @@ package com.beansspringREST;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
