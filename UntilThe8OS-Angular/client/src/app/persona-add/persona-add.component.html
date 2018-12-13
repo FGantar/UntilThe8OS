@@ -2,23 +2,23 @@
   <h2 class="text-center">Add User</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="nombre">nombre:</label>
-      <input type="text" formControlName="nombre" placeholder="nombre" name="nombre" class="form-control" id="nombre">
+      <label for="nombre">Nombre:</label>
+      <input type="text" formControlName="nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre">
     </div>
 
     <div class="form-group">
-      <label for="apellido1">Apellido:</label>
-      <input type="text" formControlName="apellido1" placeholder="apellido1" name="apellido1" class="form-control" id="apellido1">
+      <label for="apellido1">Primer apellido:</label>
+      <input type="text" formControlName="apellido1" placeholder="Primer apellido" name="apellido1" class="form-control" id="apellido1">
     </div>
 
     <div class="form-group">
-      <label for="apellido2">Apellido :</label>
-      <input formControlName="apellido2" placeholder="apellido2" name="apellido2" class="form-control" id="apellido2">
+      <label for="apellido2">Segundo apellido :</label>
+      <input formControlName="apellido2" placeholder="Segundo apellido" name="apellido2" class="form-control" id="apellido2">
     </div>
 
     <div class="form-group">
       <label for="dni">DNI:</label>
-      <input formControlName="dni" placeholder="dni" name="dni" class="form-control" id="dni">
+      <input formControlName="dni" placeholder="DNI" name="dni" class="form-control" id="dni">
     </div>
 
     <div class="form-group">
@@ -26,15 +26,7 @@
       <input type="date" formControlName="fechaNacimiento" placeholder="Fecha de nacimiento" name="fechaNacimiento" class="form-control" id="fechaNacimiento">
     </div>
 
-    <div class="form-group">
-      <label for="direccion">Salary:</label>
-      <input type="text" formControlName="direccion" placeholder="direccion" name="direccion" class="form-control" id="direccion">
-    </div>
-
-    <div class="form-group">
-      <label for="telefono">Salary:</label>
-      <input type="text" formControlName="telefono" placeholder="telefono" name="telefono" class="form-control" id="telefono">
-    </div>
-    <button class="btn btn-success">add</button>
+    
+    <button class="btn btn-success">Crear Contacto</button>
   </form>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../model/persona.model';
+import { Persona } from '../models/persona.model';
 import { Router } from '@angular/router';
 import { PersonaService } from './persona.service';
 
@@ -20,5 +20,15 @@ export class ListaPersonaComponent implements OnInit {
   ngOnInit() {
     this.personaService.getContactos().subscribe(data =>{this.listaContactos=data});
   }
+
+  deleteContacto(persona: Persona): void {
+    this.personaService.borrarPersona(persona.id)
+      .subscribe( data => {
+        this.listaContactos = this.listaContactos.filter(p => p !== persona);
+      })
+  };
+
+
+
 
 }

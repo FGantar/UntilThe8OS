@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../model/persona.model';
+import { Persona } from '../models/persona.model';
 import { ActivatedRoute } from '@angular/router';
 import { PersonaService } from '../lista-persona/persona.service';
+import { Location } from '@angular/common';
+import { Telefono } from '../models/telefono.model';
+import { Direccion } from '../models/direccion.model';
 
 
 @Component({
@@ -12,6 +15,8 @@ import { PersonaService } from '../lista-persona/persona.service';
 export class VistaDetalleComponent implements OnInit {
 
   persona:Persona;
+
+
 
   constructor(private route: ActivatedRoute, private personaService: PersonaService) { }
 

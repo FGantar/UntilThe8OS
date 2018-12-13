@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaAddService } from '../shared/persona-add/persona-add.service';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import { Persona } from '../models/persona.model';
+import { PersonaService } from '../lista-persona/persona.service';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-persona-add',
   templateUrl: './persona-add.component.html',
   styleUrls: ['./persona-add.component.css']
 })
-export class PersonaAddComponent implements OnInit {
-
-  constructor(private formBuilder: FormBuilder,private router: Router, private addService: PersonaAddService) { }
-
+export class PersonaAddComponent implements OnInit{
+  
+  persona: Persona = new Persona();
   addForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder,private router: Router, private personaService: PersonaService) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -21,17 +23,16 @@ export class PersonaAddComponent implements OnInit {
       apellido1: ['', Validators.required],
       apellido2: ['', Validators.required],
       dni: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
-      telefonos: ['', Validators.required],
-      direcciones: ['', Validators.required]
+      fechaNacimiento: ['', Validators.required]
     });
 
   }
 
   onSubmit() {
-    this.addService.save(this.addForm.value)
+    this.personaService.altaContacto(this.addForm.value)
       .subscribe( data => {
-        this.router.navigate(['persona-list']);
+        this.router.navigate(['contactos']);
       });
   }
+
 }

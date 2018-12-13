@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonaEditService } from '../shared/persona-edit/persona-edit.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import { Persona } from '../model/persona.model';
+import {Router, ActivatedRoute} from "@angular/router";
+import { Persona } from '../models/persona.model';
+import { PersonaService } from '../lista-persona/persona.service';
+import { Telefono } from '../models/telefono.model';
+import { Direccion } from '../models/direccion.model';
 
 @Component({
   selector: 'app-persona-edit',
@@ -12,47 +14,36 @@ import { Persona } from '../model/persona.model';
 export class PersonaEditComponent implements OnInit {
 
   persona: Persona;
+  telefonos: Telefono[];
+  direcciones: Direccion[];
   editForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router: Router, private editService: PersonaEditService) { }
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private router: Router, private personaService: PersonaService) { }
 
   ngOnInit() {
-    let personaId = window.localStorage.getItem("editPersonaId");
-    if(!personaId) {
-      alert("Invalid action.")
-      this.router.navigate(['persona-list']);
-      return;
-    }
+    this.getPersona();
     this.editForm = this.formBuilder.group({
-      id: [],
+      id: [''],
       nombre: ['', Validators.required],
       apellido1: ['', Validators.required],
       apellido2: ['', Validators.required],
       dni: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
-      telefonos: ['', Validators.required],
-      direcciones: ['', Validators.required]
     });
-    this.editService.get(+personaId)
-      .subscribe( data => {
-        this.editForm.setValue(data.result);
-      });
+  
+
+  }
+
+  getPersona(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.personaService.getPersonaById(id)
+      .subscribe(persona => this.persona = persona,);
   }
 
   onSubmit() {
-    this.editService.save(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          if(data.status === 200) {
-            alert('User updated successfully.');
-            this.router.navigate(['list-user']);
-          }else {
-            alert(data.message);
-          }
-        },
-        error => {
-          alert(error);
-        });
+    this.personaService.modificarContacto(this.editForm.value)
+      .subscribe( data => {
+        this.router.navigate(['contactos']);
+      });
   }
 
 }

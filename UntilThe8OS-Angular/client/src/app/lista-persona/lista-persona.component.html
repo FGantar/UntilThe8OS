@@ -1,23 +1,26 @@
 <div class="col-md-6">
   <h2> Lista de Contactos</h2>
-  
+  <input [(ngModel)]="searchText" placeholder="Buscar">
   <table class="table table-striped">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
+      <th type="hidden">id</th>
       <th>Nombre</th>
       <th>Apellidos</th>
-      <th>Action</th>
+      <th>Opciones</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let persona of listaContactos">
-      <td class="hidden">{{persona.idpersona}}</td>
+    <tr *ngFor="let persona of listaContactos | filter : searchText">
+      <td type="hidden">{{persona.id}}</td>
       <td>{{persona.nombre}}</td>
       <td>{{persona.apellido1}} {{persona.apellido2}}</td>
       
-      <td><button class="btn btn-danger"> Delete User</button></td>
+      <td><a  routerLink="/detalle/{{persona.id}}"><button class="btn btn-success">Ver</button></a>
+        <a style="margin-left:10px" routerLink="/modificarContacto"><button class="btn btn-success">Editar</button></a>
+        <button class="btn btn-danger" style="margin-left:10px" (click)="deleteContacto(persona)">Borrar</button></td>
     </tr>
     </tbody>
   </table>
+  <router-outlet></router-outlet>
   </div>
