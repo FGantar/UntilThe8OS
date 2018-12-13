@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../model/persona.model';
+import { Persona } from '../models/persona.model';
 import {Router} from "@angular/router";
 import { PersonaEditService } from '../shared/persona-edit/persona-edit.service';
 
 @Component({
   selector: 'app-vista-detalle',
   templateUrl: './vista-detalle.component.html',
-  styleUrls: []
+  styleUrls: ['./vista-detalle.component.css']
 })
 export class VistaDetalleComponent implements OnInit {
 

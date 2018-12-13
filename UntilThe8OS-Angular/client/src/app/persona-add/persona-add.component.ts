@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-persona-add',
   templateUrl: './persona-add.component.html',
-  styleUrls: []
+  styleUrls: ['./persona-add.component.css']
 })
 export class PersonaAddComponent implements OnInit {
 

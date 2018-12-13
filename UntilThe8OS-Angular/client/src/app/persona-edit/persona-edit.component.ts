@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { PersonaEditService } from '../shared/persona-edit/persona-edit.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import { Persona } from '../model/persona.model';
+import { Persona } from '../models/persona.model';
 
 @Component({
   selector: 'app-persona-edit',
   templateUrl: './persona-edit.component.html',
-  styleUrls: []
+  styleUrls: ['./persona-edit.component.css']
 })
 export class PersonaEditComponent implements OnInit {
 
