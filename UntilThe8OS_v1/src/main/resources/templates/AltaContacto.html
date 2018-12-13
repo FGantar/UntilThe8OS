@@ -91,7 +91,8 @@
 						th:id="dni" type="text" tabindex="1">
 				</fieldset>
 				<div th:each="Persona : ${Persona.direcciones}">
-
+				
+				<input type="hidden" th:value="${Persona.idDireccion}" th:name="idDireccion" th:id="idDireccion" /> 
 					<fieldset>
 						<input placeholder="direccion" th:value="${Persona.direccion}"
 							th:name="direccion" th:id="direccion" type="text" tabindex="1">
@@ -109,6 +110,7 @@
 				</div>
 				<div th:each="Persona : ${Persona.telefonos}">
 					<fieldset>
+					<input type="hidden" th:value="${Persona.idtelefono}" th:id="idtelefono" th:name="idtelefono" />
 						<input placeholder="telefono" th:value="${Persona.telefono}"
 							th:name="telefono" th:id="telefono" type="text" tabindex="1">
 					</fieldset>
@@ -117,6 +119,7 @@
 				</div>
 
 
+					
 				<fieldset>
 
 					<input placeholder="Fecha de nacimiento"
