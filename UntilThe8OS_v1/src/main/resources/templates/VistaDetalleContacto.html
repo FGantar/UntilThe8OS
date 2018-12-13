@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Document</title>
-<link rel="stylesheet" type="text/css" href="/css/estiloVD.css"
-	th:href="@{/css/estiloVD.css}">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}">
 </head>
-
 <body>
-
 	<div class="container">
-
 		<div id="contact">
 			<ul>
 				<li>Nombre:<span th:text="${vistaDetalleContacto.nombre}"></span></li>
 				<li>Apellidos:<span th:text="${vistaDetalleContacto.apellido1}"></span></li>
 				<li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
-				<li>Fecha de nacimiento:<span
-					th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
+				<li>Fecha de nacimiento:<span th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
 				<li>Direccion:
+<<<<<<< HEAD
 					<div
 						th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
 						Direccion: <span th:text="${vistaDetalleContacto.direccion}" /> codigo Postal: <span
 							th:text="${vistaDetalleContacto.codPostal}" /> localidad: <span
 							th:text="${vistaDetalleContacto.localidad}" /> provincia: <span
 							th:text="${vistaDetalleContacto.provincia.provincias}" />
+=======
+					<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
+						<span th:text="${vistaDetalleContacto.direccion}" /> <span th:text="${vistaDetalleContacto.codPostal}" /> <span th:text="${vistaDetalleContacto.localidad}" /> <span th:text="${vistaDetalleContacto.provincia.provincias}" />
+>>>>>>> branch 'Primera' of https://github.com/FGantar/UntilThe8OS.git
 					</div>
 				</li>
-
 				<li>Telefono:
-					<div
-						th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
-						<span th:text="${vistaDetalleContacto.telefono}" />
-					</div>
+						<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
+							<span th:text="${vistaDetalleContacto.telefono}" />
+						</div>
 				</li>
 			</ul>
 			<br>
 			<form th:action="@{/}">
-				<input name="/" type="submit" id="contact-submit"
-					value="Volver a la lista de contactos" />
+				<input name="/" type="submit" id="contact-submit" value="Volver a la lista de contactos" />
 			</form>
 		</div>
 

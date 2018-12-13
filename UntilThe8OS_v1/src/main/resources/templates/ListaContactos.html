@@ -1,12 +1,22 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+=======
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+>>>>>>> branch 'Primera' of https://github.com/FGantar/UntilThe8OS.git
 
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="/css/estiloVD.css"
 	th:href="@{/css/estiloVD.css}" />
 <title>Lista de Contactos</title>
+=======
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}" />
+	<title>Lista de Contactos</title>
+>>>>>>> branch 'Primera' of https://github.com/FGantar/UntilThe8OS.git
 </head>
 
 <body>
@@ -23,6 +33,7 @@
 						<td th:text="${listaContactos.nombre}"></td>
 						<td>
 							<div class="prueba">
+<<<<<<< HEAD
 								<a href="detalle?idPersona=${listaContactos.idPersona}"
 									th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
 								<a href="new?idPersona=${listaContactos.idPersona}"
@@ -49,6 +60,18 @@
 							</fieldset>
 						</form>
 					</div>
+=======
+								<a href="detalle?idPersona=${listaContactos.idPersona}" th:href="@{/detalle(idPersona=${listaContactos.idPersona})}"><button>Ver</button></a>
+								<a href="new?idPersona=${listaContactos.idPersona}" th:href="@{/modificar(idPersona=${listaContactos.idPersona})}"><button class="derecha">Editar</button></a>
+								<a href="borrar?idPersona=${listaContactos.idPersona}" th:href="@{/borrar(idPersona=${listaContactos.idPersona})}"><button class="derecha">Borrar</button></a>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<div align="center" >
+					<a href="new" th:href="@{/new}"><button>Añadir Contacto</button></a>
+					<a href="new" th:href="@{/logout}"><button>Logout</button></a>
+>>>>>>> branch 'Primera' of https://github.com/FGantar/UntilThe8OS.git
 				</div>
 			</div>
 		</div>

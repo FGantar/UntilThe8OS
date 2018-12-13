@@ -1,6 +1,7 @@
 package com.beansspringREST.model;
 
 import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 import java.util.Set;
 
@@ -38,6 +38,19 @@ public class Persona {
 	public Persona() {
 		super();
 	}
+	
+	
+
+
+	public Persona(String nombre, String apellido1, String apellido2, String dni, LocalDate fechanacimiento) {
+		super();
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechanacimiento = fechanacimiento;
+	}
+
 
 	@Id
 	@GeneratedValue
