@@ -85,10 +85,11 @@ public class ControladorMVC {
 
 	@RequestMapping("/modificado")
 	public ModelAndView modificarContacto(@ModelAttribute Persona persona, @ModelAttribute Telefono telefono,
-			@ModelAttribute Direccion direccion) {
-		System.out.println(persona);
+			@ModelAttribute Direccion direccion, @ModelAttribute Provincia provincia) {
+		direccion.setProvincia(provincia);
 		persona.getTelefonos().add(telefono);
 		persona.getDirecciones().add(direccion);
+		System.out.println(persona+"hola");
 		contactoServicio.modificarContacto(persona);
 		return new ModelAndView("redirect:/");
 	}

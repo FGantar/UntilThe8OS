@@ -56,23 +56,15 @@ public class ContactoDAOImpl implements ContactoDAO {
 	public void modificarContacto(Persona persona) {
 
 		Persona nuevaPersona = vistaDetalleContacto(persona.getIdPersona());
-		System.out.println(nuevaPersona);
 		nuevaPersona.setNombre(persona.getNombre());
 		nuevaPersona.setApellido1(persona.getApellido1());
 		nuevaPersona.setApellido2(persona.getApellido2());
 		nuevaPersona.setDni(persona.getDni());
-		persona.getDirecciones().get(0).setProvincia(nuevaPersona.getDirecciones().get(0).getProvincia());
-		persona.getDirecciones().get(0).setIdDireccion(nuevaPersona.getDirecciones().get(0).getIdDireccion());
-		persona.getTelefonos().get(0).setIdtelefono(nuevaPersona.getTelefonos().get(0).getIdtelefono());
-		;
 		nuevaPersona.getDirecciones().clear();
-
 		nuevaPersona.getDirecciones().addAll(persona.getDirecciones());
-
 		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento());
 		nuevaPersona.getTelefonos().clear();
 		nuevaPersona.getTelefonos().addAll(persona.getTelefonos());
-		System.out.println(nuevaPersona);
 		entityManager.merge(nuevaPersona);
 
 	}

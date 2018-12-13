@@ -71,8 +71,7 @@
 				method="post">
 				<h3>Nuevo contacto</h3>
 				<h4>rellene los siguientes campos</h4>
-				<input type="hidden" th:field="${Persona.idPersona}" /> <input
-					type="hidden" th:name="idprovincia" th:id="idprovincia" />
+				<input type="hidden" th:field="${Persona.idPersona}" /> 
 				<fieldset>
 					<input placeholder="Nombre" type="text"
 						th:value="${Persona.nombre}" th:name="nombre" th:id="nombre"
@@ -106,6 +105,7 @@
 						<input placeholder="Localidad" th:value="${Persona.localidad}"
 							th:name="localidad" th:id="localidad" type="text" tabindex="1">
 					</fieldset>
+					<input type="hidden" th:value="${Persona.provincia.idprovincia}" th:name="idprovincia" th:id="idprovincia" />
 
 				</div>
 				<div th:each="Persona : ${Persona.telefonos}">
