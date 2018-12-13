@@ -22,25 +22,13 @@ import javax.persistence.Table;
 @Table(name = "TELEFONO")
 public class Telefono {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "IDTELEFONO")
+
 	private int idtelefono;
-
-	@Column(name = "TELEFONO")
 	private String telefono;
-
-	@ManyToOne(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA", insertable = false, updatable = false)
 	private Persona persona;
 
 	public Telefono() {
 		super();
-	}
-
-	public Telefono(String telefono) {
-		super();
-		this.telefono = telefono;
 	}
 
 	public Telefono(int idtelefono, String telefono) {
@@ -49,6 +37,9 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "IDTELEFONO")
 	public int getIdtelefono() {
 		return idtelefono;
 	}
@@ -57,6 +48,7 @@ public class Telefono {
 		this.idtelefono = idtelefono;
 	}
 
+	@Column(name = "TELEFONO")
 	public String getTelefono() {
 		return telefono;
 	}
@@ -65,6 +57,8 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "IDPERSONA", referencedColumnName = "IDPERSONA",insertable = false, updatable = false)
 	public Persona getPersona() {
 		return persona;
 	}
@@ -80,43 +74,9 @@ public class Telefono {
 		builder.append(idtelefono);
 		builder.append(", telefono=");
 		builder.append(telefono);
-
 		builder.append("]");
 		return builder.toString();
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idtelefono;
-		result = prime * result + ((persona == null) ? 0 : persona.hashCode());
-		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Telefono other = (Telefono) obj;
-		if (idtelefono != other.idtelefono)
-			return false;
-		if (persona == null) {
-			if (other.persona != null)
-				return false;
-		} else if (!persona.equals(other.persona))
-			return false;
-		if (telefono == null) {
-			if (other.telefono != null)
-				return false;
-		} else if (!telefono.equals(other.telefono))
-			return false;
-		return true;
-	}
-
+	}	
+	
+	
 }

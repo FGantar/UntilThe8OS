@@ -79,8 +79,8 @@ public class ControladorMVC {
 
 	@RequestMapping("/modificado")
 	public ModelAndView modificarContacto(@ModelAttribute Persona persona, @ModelAttribute Telefono telefono,
-			@ModelAttribute Direccion direccion, @ModelAttribute Provincia provincia) {
-		System.out.println(provincia);
+			@ModelAttribute Direccion direccion) {
+		System.out.println(persona);
 		persona.getTelefonos().add(telefono);
 		persona.getDirecciones().add(direccion);
 		contactoServicio.modificarContacto(persona);
@@ -91,6 +91,17 @@ public class ControladorMVC {
 	public ModelAndView borrarContacto(@RequestParam("idPersona") int id) {
 		contactoServicio.borrarContacto(id);
 		return new ModelAndView("redirect:/");
+	}
+	
+	@GetMapping("/filtrar")
+	public ModelAndView Filtrar(@RequestParam("prov") String palabra) {
+		
+		List<Persona> persona = contactoServicio.Filtrar("Provincia","provincias", palabra);
+		ModelAndView model = new ModelAndView("ListaContactos");
+		System.out.println(persona);
+		model.addObject("listaContactos", persona);
+		return model;
+		
 	}
 
 }

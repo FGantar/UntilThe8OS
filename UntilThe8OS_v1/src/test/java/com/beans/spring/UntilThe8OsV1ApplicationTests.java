@@ -3,6 +3,8 @@ package com.beans.spring;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.sql.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ public class UntilThe8OsV1ApplicationTests {
 	 private ContactoDAO contactoDao;
 	 
 	   
-	 private Persona persona = new Persona("aaaa","bbbbb","ggggg","aadad");
+	 private Persona persona = new Persona("aaaa","bbbbb","ggggg","aadad",Date.valueOf("2000-12-12"));
 	 
 	 @Test
 	 public void alta() throws Exception {
