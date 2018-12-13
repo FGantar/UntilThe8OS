@@ -14,23 +14,23 @@
 				<li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
 				<li>Fecha de nacimiento:<span th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
 				<li>Direccion:
-<<<<<<< HEAD
+						<ul>
 					<div
 						th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
-						Direccion: <span th:text="${vistaDetalleContacto.direccion}" /> codigo Postal: <span
-							th:text="${vistaDetalleContacto.codPostal}" /> localidad: <span
-							th:text="${vistaDetalleContacto.localidad}" /> provincia: <span
-							th:text="${vistaDetalleContacto.provincia.provincias}" />
-=======
-					<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
-						<span th:text="${vistaDetalleContacto.direccion}" /> <span th:text="${vistaDetalleContacto.codPostal}" /> <span th:text="${vistaDetalleContacto.localidad}" /> <span th:text="${vistaDetalleContacto.provincia.provincias}" />
->>>>>>> branch 'Primera' of https://github.com/FGantar/UntilThe8OS.git
+					
+						<li>Direccion: <span th:text="${vistaDetalleContacto.direccion}" /> </li><li> codigo Postal: <span
+							th:text="${vistaDetalleContacto.codPostal}" /> </li> <li>localidad: <span
+						    th:text="${vistaDetalleContacto.localidad}" /> </li> <li> provincia: <span
+							th:text="${vistaDetalleContacto.provincia.provincias}" /> </li>
 					</div>
+					</ul>
 				</li>
-				<li>Telefono:
+				<li>Telefono: 
+				<ul>
 						<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
-							<span th:text="${vistaDetalleContacto.telefono}" />
+							<li><span th:text="${vistaDetalleContacto.telefono}" /></li>
 						</div>
+						</ul>
 				</li>
 			</ul>
 			<br>
