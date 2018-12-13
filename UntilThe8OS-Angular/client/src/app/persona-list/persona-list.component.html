@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <h2> Lista de Contactos</h2>
+  <select id="so" name="so">
+    <option value="" selected="selected">- selecciona -</option>
+    <option value="nombre" ng-model="campo">Nombre</option>
+    <option value="telefono" ng-model="campo">Telefono</option>
+    <option value="provincia" ng-model="campo">Provincia</option>
+  </select><input type="text" placeholder="Busqueda" ng-model="filtro">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Opciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngRepeat="let persona of personas" |filter:filtro | orderBy:campo>
+      <td class="hidden">{{persona.idpersona}}</td>
+      <td>{{persona.nombre}}</td>
+      <td>{{persona.apellido1}}</td>
+      <td><button class="btn btn-danger" (click)="modificarContacto(persona)"> Editar contacto</button>
+      <button class="btn btn-danger" (click)="borrarContacto(persona)"> Borrar contacto</button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
