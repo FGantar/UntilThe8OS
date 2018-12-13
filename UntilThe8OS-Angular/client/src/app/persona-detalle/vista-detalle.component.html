@@ -31,11 +31,11 @@
     </tr>
     <tr>
       <td>Telefonos: </td>
-      <td *ngFor="let telefono of persona.telefonos">{{telefono.telefono}}</td>
+      <td *ngFor="let telefono of telefonos">{{telefono.telefono}}</td>
     </tr>
     <tr>
       <td>Direccion: </td>
-      <td *ngFor="let direccion of persona.direcciones">{{direccion.direccion}} {{direccion.codPostal}} {{direccion.provincia.provincia}}</td>
+      <td *ngFor="let direccion of direcciones">{{direccion.direccion}} {{direccion.codPostal}} {{direccion.provincia.provincia}}</td>
     </tr>
     </tbody>
   </table>

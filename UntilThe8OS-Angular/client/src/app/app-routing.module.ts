@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PersonaAddComponent } from './persona-add/persona-add.component';
-
-import { PersonaEditService } from './shared/persona-edit/persona-edit.service';
 import { ListaPersonaComponent } from './lista-persona/lista-persona.component';
+import { VistaDetalleComponent } from './persona-detalle/vista-detalle.component';
 
 const routes: Routes = [
-  { path: 'listaContactos', component: ListaPersonaComponent },
-  { path: 'altaContacto', component: PersonaAddComponent },
-  { path: 'modificarContacto', component: PersonaEditService }
+  { path: 'contactos', 
+    component: ListaPersonaComponent},
+  {path: 'detalle/:id', 
+    component: VistaDetalleComponent}
 ];
 
 @NgModule({

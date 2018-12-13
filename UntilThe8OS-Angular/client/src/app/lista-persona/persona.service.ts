@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Persona } from '../models/persona.model';
+import { Persona } from '../model/persona.model';
 import { Observable } from 'rxjs';
 
 
@@ -20,6 +20,10 @@ export class PersonaService {
     return this.http.get<Persona[]>(this.personaUrl);
   }
 
+  getPersonaById(id: number): Observable<Persona> {
+    const urlPersona = `${this.personaUrl}/${id}`;
+    return this.http.get<Persona>(urlPersona);
+  }
 
 
 }
