@@ -79,7 +79,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override
-	public List<Persona> Filtrar(String tabla, String columna, String palabra) {
+	public List<Persona> Filtrar(String palabra) {
 		String hql = "select cat from Persona as cat join cat.direcciones as mate join mate.provincia as kitten where kitten.provincias="
 				+ "'" + palabra + "'";
 		;

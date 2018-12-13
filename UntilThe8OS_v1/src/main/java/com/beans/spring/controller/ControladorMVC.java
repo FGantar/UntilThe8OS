@@ -103,7 +103,7 @@ public class ControladorMVC {
 	@GetMapping("/filtrar")
 	public ModelAndView Filtrar(@RequestParam("prov") String palabra) {
 		
-		List<Persona> persona = contactoServicio.Filtrar("Provincia","provincias", palabra);
+		List<Persona> persona = contactoServicio.Filtrar(palabra);
 		ModelAndView model = new ModelAndView("ListaContactos");
 		System.out.println(persona);
 		model.addObject("listaContactos", persona);

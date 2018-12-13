@@ -15,7 +15,7 @@ public interface ContactoServicio {
 
 	public abstract List<Persona> listaContactos();
 	
-	public abstract List<Persona> Filtrar(String tabla,String columna, String palabra);
+	public abstract List<Persona> Filtrar(String palabra);
 
 	public abstract Persona vistaDetalleContacto(int id);
 
