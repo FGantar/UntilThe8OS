@@ -4,30 +4,34 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
-import { PersonaListComponent } from './persona-list/persona-list.component';
+
 import { SharedComponent } from './shared/shared.component';
-import { PersonaService } from './shared/persona/persona.service';
+
 import { VistaDetalleComponent } from './persona-detalle/vista-detalle.component';
 import { PersonaAddComponent } from './persona-add/persona-add.component';
-import { PersonaService } from './shared/persona/persona.service';
+import { ListaPersonaComponent } from './lista-persona/lista-persona.component';
+import { PersonaService } from './lista-persona/persona.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonaService,
+    ListaPersonaComponent,
     PersonaEditComponent,
-    PersonaListComponent,
+    
     SharedComponent,
-    PersonaListComponent,
-    PersonaService,
+    
+    
     VistaDetalleComponent,
     PersonaAddComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PersonaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,23 @@
+<div class="col-md-6">
+  <h2> Lista de Contactos</h2>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let persona of listaContactos">
+      <td class="hidden">{{persona.idpersona}}</td>
+      <td>{{persona.nombre}}</td>
+      <td>{{persona.apellido1}} {{persona.apellido2}}</td>
+      
+      <td><button class="btn btn-danger"> Delete User</button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
