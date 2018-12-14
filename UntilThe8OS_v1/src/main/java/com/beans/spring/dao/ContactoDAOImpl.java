@@ -60,11 +60,12 @@ public class ContactoDAOImpl implements ContactoDAO {
 		nuevaPersona.setApellido1(persona.getApellido1());
 		nuevaPersona.setApellido2(persona.getApellido2());
 		nuevaPersona.setDni(persona.getDni());
+		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento());
 		nuevaPersona.getDirecciones().clear();
 		nuevaPersona.getDirecciones().addAll(persona.getDirecciones());
-		nuevaPersona.setFechaNacimiento(persona.getFechaNacimiento());
 		nuevaPersona.getTelefonos().clear();
 		nuevaPersona.getTelefonos().addAll(persona.getTelefonos());
+		
 		entityManager.merge(nuevaPersona);
 
 	}
@@ -80,7 +81,7 @@ public class ContactoDAOImpl implements ContactoDAO {
 	@Transactional
 	@Override
 	public List<Persona> Filtrar(String palabra) {
-		String hql = "select cat from Persona as cat join cat.direcciones as mate join mate.provincia as kitten where kitten.provincias="
+		String hql = "select pe from Persona as pe join pe.direcciones as dir join dir.provincia as pr where pr.provincias="
 				+ "'" + palabra + "'";
 		;
 		List<Persona> result = (List<Persona>) entityManager.createQuery(hql).getResultList();

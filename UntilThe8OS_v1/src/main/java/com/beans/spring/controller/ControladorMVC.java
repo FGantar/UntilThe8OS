@@ -36,12 +36,13 @@ public class ControladorMVC {
 		model.addObject("listaContactos", listaContactos);
 		return model;
 	}
-	  @RequestMapping(value = "/login")
-	    public ModelAndView login(){
-	        ModelAndView modelAndView = new ModelAndView();
-	        modelAndView.setViewName("Seguridad");
-	        return modelAndView;
-	    }
+
+	@RequestMapping(value = "/login")
+	public ModelAndView login() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("Seguridad");
+		return modelAndView;
+	}
 
 	@RequestMapping(value = "/new")
 	public ModelAndView newUser(@ModelAttribute Persona persona) {
@@ -89,26 +90,28 @@ public class ControladorMVC {
 		direccion.setProvincia(provincia);
 		persona.getTelefonos().add(telefono);
 		persona.getDirecciones().add(direccion);
-		System.out.println(persona+"hola");
+		System.out.println(persona + "hola");
 		contactoServicio.modificarContacto(persona);
 		return new ModelAndView("redirect:/");
 	}
-	
+
 	@GetMapping("/borrar")
 	public ModelAndView borrarContacto(@RequestParam("idPersona") int id) {
 		contactoServicio.borrarContacto(id);
 		return new ModelAndView("redirect:/");
 	}
-	
+
 	@GetMapping("/filtrar")
-	public ModelAndView Filtrar(@RequestParam("prov") String palabra) {
+	public ModelAndView Filtrar(@RequestParam("prov") String provincia) {
 		
-		List<Persona> persona = contactoServicio.Filtrar(palabra);
+
+		List<Persona> persona = contactoServicio.Filtrar(provincia);
 		ModelAndView model = new ModelAndView("ListaContactos");
 		System.out.println(persona);
 		model.addObject("listaContactos", persona);
 		return model;
-		
+
 	}
 
+	
 }
