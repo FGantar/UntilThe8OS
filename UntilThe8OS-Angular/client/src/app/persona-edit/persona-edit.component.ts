@@ -3,8 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import { Persona } from '../models/persona.model';
 import { PersonaService } from '../lista-persona/persona.service';
-import { Telefono } from '../models/telefono.model';
-import { Direccion } from '../models/direccion.model';
+
 
 @Component({
   selector: 'app-persona-edit',
@@ -14,21 +13,21 @@ import { Direccion } from '../models/direccion.model';
 export class PersonaEditComponent implements OnInit {
 
   persona: Persona;
-  telefonos: Telefono[];
-  direcciones: Direccion[];
   editForm: FormGroup;
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,private router: Router, private personaService: PersonaService) { }
 
   ngOnInit() {
     this.getPersona();
+    
     this.editForm = this.formBuilder.group({
-      id: [''],
+      id: [this.persona.id],
       nombre: ['', Validators.required],
       apellido1: ['', Validators.required],
       apellido2: ['', Validators.required],
       dni: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
     });
+    this.editForm.controls['id'].setValue(this.persona.id,this.persona)
   
 
   }
@@ -36,7 +35,7 @@ export class PersonaEditComponent implements OnInit {
   getPersona(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.personaService.getPersonaById(id)
-      .subscribe(persona => this.persona = persona,);
+      .subscribe(persona => this.persona = persona);
   }
 
   onSubmit() {

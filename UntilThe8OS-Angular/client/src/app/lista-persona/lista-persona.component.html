@@ -17,7 +17,6 @@
       <td>{{persona.apellido1}} {{persona.apellido2}}</td>
       
       <td><a  routerLink="/detalle/{{persona.id}}"><button class="btn btn-success">Ver</button></a>
-        <a style="margin-left:10px" routerLink="/modificarContacto"><button class="btn btn-success">Editar</button></a>
         <button class="btn btn-danger" style="margin-left:10px" (click)="deleteContacto(persona)">Borrar</button></td>
     </tr>
     </tbody>

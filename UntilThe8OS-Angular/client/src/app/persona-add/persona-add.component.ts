@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import { Persona } from '../models/persona.model';
 import { PersonaService } from '../lista-persona/persona.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Telefono } from '../models/telefono.model';
 
 @Component({
   selector: 'app-persona-add',
