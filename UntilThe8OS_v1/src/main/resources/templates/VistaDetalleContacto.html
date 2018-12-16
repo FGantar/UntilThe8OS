@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/css/estiloVD.css" th:href="@{/css/estiloVD.css}">
+</head>
+<body>
+	<div class="container">
+		<div id="contact">
+			<ul>
+				<li>Nombre:<span th:text="${vistaDetalleContacto.nombre}"></span></li>
+				<li>Apellidos:<span th:text="${vistaDetalleContacto.apellido1}"></span></li>
+				<li>DNI:<span th:text="${vistaDetalleContacto.dni}"></span></li>
+				<li>Fecha de nacimiento:<span th:text="${vistaDetalleContacto.fechaNacimiento}"></span></li>
+				<li>Direccion:
+						<ul>
+					<div
+						th:each="vistaDetalleContacto : ${vistaDetalleContacto.direcciones}">
+					
+						<li>Direccion: <span th:text="${vistaDetalleContacto.direccion}" /> </li><li> codigo Postal: <span
+							th:text="${vistaDetalleContacto.codPostal}" /> </li> <li>localidad: <span
+						    th:text="${vistaDetalleContacto.localidad}" /> </li> <li> provincia: <span
+							th:text="${vistaDetalleContacto.provincia.provincias}" /> </li>
+					</div>
+					</ul>
+				</li>
+				<li>Telefono: 
+				<ul>
+						<div th:each="vistaDetalleContacto : ${vistaDetalleContacto.telefonos}">
+							<li><span th:text="${vistaDetalleContacto.telefono}" /></li>
+						</div>
+						</ul>
+				</li>
+			</ul>
+			<br>
+			<form th:action="@{/}">
+				<input name="/" type="submit" id="contact-submit" value="Volver a la lista de contactos" />
+			</form>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
